@@ -6,6 +6,7 @@ import Loader from './components/Loader';
 import EmptyState from './components/EmptyState';
 import ErrorState from './components/ErrorState';
 import Pagination from './components/Pagination';
+import ImageModal from './components/ImageModal';
 import { searchPhotos, getCuratedMockPhotos } from './services/unsplash';
 import './App.css';
 
@@ -219,6 +220,12 @@ export default function App() {
               </>
             )}
           </section>
+        )}
+        {selectedPhoto && (
+          <ImageModal
+            photo={selectedPhoto}
+            onClose={() => setSelectedPhoto(null)}
+          />
         )}
       </main>
 
