@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Heart, User } from 'lucide-react';
+import { Heart, User, Maximize2 } from 'lucide-react';
 
 export default function ImageCard({ photo, onSelect }) {
   const [imageLoaded, setImageLoaded] = useState(false);
@@ -14,7 +14,7 @@ export default function ImageCard({ photo, onSelect }) {
   };
 
   const handleTouchToggle = (e) => {
-    // If not already active on touch device, show overlay first on touch
+    // On touch screens, first tap reveals the details, second tap opens full modal
     if (!touchActive) {
       setTouchActive(true);
     } else {
@@ -27,10 +27,11 @@ export default function ImageCard({ photo, onSelect }) {
       className={`image-card ${touchActive ? 'touch-active' : ''}`}
       tabIndex={0}
       role="button"
-      aria-label={`View photo by ${photo.photographer.name}: ${photo.title}`}
+      aria-label={`View photo by ${photo.photographer.name}: ${photo.title}. Press Enter to preview.`}
       onClick={() => onSelect(photo)}
       onKeyDown={handleKeyDown}
       onTouchStart={handleTouchToggle}
+      onMouseLeave={() => setTouchActive(false)}
       style={{ backgroundColor: photo.color || '#f1f5f9' }}
     >
       <div className="image-card-img-wrapper">
@@ -44,11 +45,16 @@ export default function ImageCard({ photo, onSelect }) {
         />
       </div>
 
-      <div className="image-card-overlay" aria-hidden="true">
+      {/* Hover & Touch Overlay */}
+      <div className="image-card-overlay">
         <div className="overlay-top">
           <span className="overlay-likes" title={`${photo.likes.toLocaleString()} likes`}>
-            <Heart size={14} fill="currentColor" />
+            <Heart size={13} fill="currentColor" />
             <span>{photo.likes > 999 ? `${(photo.likes / 1000).toFixed(1)}k` : photo.likes}</span>
+          </span>
+
+          <span className="overlay-action-badge" title="Preview photograph">
+            <Maximize2 size={13} />
           </span>
         </div>
 
@@ -64,7 +70,7 @@ export default function ImageCard({ photo, onSelect }) {
               />
             ) : (
               <div className="photographer-avatar-placeholder">
-                <User size={16} />
+                <User size={14} />
               </div>
             )}
             <div className="photographer-meta">

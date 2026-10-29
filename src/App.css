@@ -436,7 +436,26 @@
 
 .overlay-top {
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.overlay-action-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(8px);
+  color: #ffffff;
+  border-radius: 50%;
+  transition: transform var(--transition-fast), background var(--transition-fast);
+}
+
+.image-card:hover .overlay-action-badge {
+  transform: scale(1.1);
+  background: rgba(99, 102, 241, 0.8);
 }
 
 .overlay-likes {
