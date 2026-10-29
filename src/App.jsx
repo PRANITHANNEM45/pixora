@@ -65,7 +65,7 @@ export default function App() {
         setTotalPages(mockData.totalPages);
         setTotalResults(mockData.total);
         setIsDemoFallback(true);
-        setError(err);
+        setError(null);
       } else {
         setError(err);
         setPhotos([]);

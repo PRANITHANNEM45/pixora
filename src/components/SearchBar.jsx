@@ -70,7 +70,7 @@ export default function SearchBar({ currentQuery, onSearch, isLoading }) {
               type="button"
               className="clear-button"
               onClick={handleClear}
-              aria-label="Clear search input"
+              aria-label="Clear input"
             >
               <X size={16} />
             </button>
@@ -89,14 +89,13 @@ export default function SearchBar({ currentQuery, onSearch, isLoading }) {
 
       <div className="suggested-keywords" aria-label="Suggested search keywords">
         <span className="suggested-label">Trending Topics:</span>
-        <div className="keywords-chips-list" role="list">
+        <div className="keywords-chips-list">
           {SUGGESTED_KEYWORDS.map((keyword) => {
             const isActive = currentQuery?.toLowerCase() === keyword.toLowerCase();
             return (
               <button
                 key={keyword}
                 type="button"
-                role="listitem"
                 className={`keyword-chip ${isActive ? 'active' : ''}`}
                 onClick={() => handleChipClick(keyword)}
                 aria-pressed={isActive}
