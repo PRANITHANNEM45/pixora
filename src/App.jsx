@@ -5,6 +5,7 @@ import ImageGrid from './components/ImageGrid';
 import Loader from './components/Loader';
 import EmptyState from './components/EmptyState';
 import ErrorState from './components/ErrorState';
+import Pagination from './components/Pagination';
 import { searchPhotos, getCuratedMockPhotos } from './services/unsplash';
 import './App.css';
 
@@ -20,6 +21,7 @@ export default function App() {
   const [selectedPhoto, setSelectedPhoto] = useState(null);
 
   const abortControllerRef = useRef(null);
+  const resultsRef = useRef(null);
 
   // Perform image search
   const executeSearch = async (searchQuery, pageNum = 1) => {
@@ -78,6 +80,17 @@ export default function App() {
     setQuery(newQuery);
     setCurrentPage(1);
     executeSearch(newQuery, 1);
+  };
+
+  const handlePageChange = (newPage) => {
+    if (newPage < 1 || newPage > totalPages || newPage === currentPage) return;
+    setCurrentPage(newPage);
+    executeSearch(query, newPage);
+
+    // Smooth scroll back up to the results section
+    if (resultsRef.current) {
+      resultsRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
   };
 
   const handleRetry = () => {
@@ -175,7 +188,11 @@ export default function App() {
 
         {/* Results Section */}
         {!isLoading && !error && query && (
-          <section className="results-section" aria-label="Search results section">
+          <section
+            ref={resultsRef}
+            className="results-section"
+            aria-label="Search results section"
+          >
             {photos.length === 0 ? (
               <EmptyState query={query} onSelectSuggestion={handleSearch} />
             ) : (
@@ -192,6 +209,13 @@ export default function App() {
                 </div>
 
                 <ImageGrid photos={photos} onSelectPhoto={(photo) => setSelectedPhoto(photo)} />
+
+                <Pagination
+                  currentPage={currentPage}
+                  totalPages={totalPages}
+                  onPageChange={handlePageChange}
+                  isLoading={isLoading}
+                />
               </>
             )}
           </section>
