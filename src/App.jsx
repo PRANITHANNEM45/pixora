@@ -1,7 +1,10 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useRef } from 'react';
 import Header from './components/Header';
 import SearchBar from './components/SearchBar';
 import ImageGrid from './components/ImageGrid';
+import Loader from './components/Loader';
+import EmptyState from './components/EmptyState';
+import ErrorState from './components/ErrorState';
 import { searchPhotos, getCuratedMockPhotos } from './services/unsplash';
 import './App.css';
 
@@ -27,7 +30,7 @@ export default function App() {
       return;
     }
 
-    // Abort previous in-flight request to prevent race conditions
+    // Abort previous in-flight request to avoid race conditions
     if (abortControllerRef.current) {
       abortControllerRef.current.abort();
     }
@@ -48,10 +51,11 @@ export default function App() {
       setTotalPages(data.totalPages);
       setTotalResults(data.total);
       setIsDemoFallback(false);
+      setError(null);
     } catch (err) {
       if (err.name === 'AbortError') return;
 
-      // If missing API key, provide fallback mock data with helpful notice
+      // When API key is missing, offer curated fallback data
       if (err.type === 'MISSING_KEY') {
         const mockData = getCuratedMockPhotos(searchQuery, pageNum, 12);
         setPhotos(mockData.results);
@@ -76,6 +80,22 @@ export default function App() {
     executeSearch(newQuery, 1);
   };
 
+  const handleRetry = () => {
+    if (query) {
+      executeSearch(query, currentPage);
+    }
+  };
+
+  const handleLoadDemoShowcase = () => {
+    const defaultTerm = query || 'Nature';
+    setQuery(defaultTerm);
+    const mockData = getCuratedMockPhotos(defaultTerm, 1, 12);
+    setPhotos(mockData.results);
+    setTotalPages(mockData.totalPages);
+    setTotalResults(mockData.total);
+    setIsDemoFallback(true);
+  };
+
   const handleReset = () => {
     setQuery('');
     setPhotos([]);
@@ -83,6 +103,7 @@ export default function App() {
     setTotalPages(0);
     setTotalResults(0);
     setError(null);
+    setIsDemoFallback(false);
     if (abortControllerRef.current) {
       abortControllerRef.current.abort();
     }
@@ -99,20 +120,80 @@ export default function App() {
           isLoading={isLoading}
         />
 
-        {query && (
-          <section className="results-section" aria-label="Search results section">
+        {/* Demo Fallback Notice if active */}
+        {isDemoFallback && (
+          <div
+            style={{
+              padding: '0.75rem 1.25rem',
+              marginBottom: '1.5rem',
+              background: '#fef3c7',
+              border: '1px solid #fde68a',
+              borderRadius: 'var(--radius-md)',
+              fontSize: '0.85rem',
+              color: '#92400e',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'space-between',
+              gap: '1rem',
+              flexWrap: 'wrap'
+            }}
+          >
+            <span>
+              <strong>Demo Mode Active:</strong> Showing curated showcase photos. Add your Unsplash Access Key to <code>.env</code> for live API results.
+            </span>
+            <a
+              href="https://unsplash.com/developers"
+              target="_blank"
+              rel="noreferrer"
+              style={{ fontWeight: 700, textDecoration: 'underline', color: '#78350f' }}
+            >
+              Get Free API Key
+            </a>
+          </div>
+        )}
+
+        {/* Error State (when not in fallback demo mode) */}
+        {error && !isDemoFallback && (
+          <ErrorState
+            error={error}
+            onRetry={handleRetry}
+            onUseDemo={handleLoadDemoShowcase}
+          />
+        )}
+
+        {/* Loading State */}
+        {isLoading && (
+          <section className="results-section" aria-label="Loading search results">
             <div className="gallery-header">
               <div className="gallery-title-wrapper">
-                <h2 className="gallery-title">
-                  Results for <span className="gallery-query-badge">"{query}"</span>
-                </h2>
-                {totalResults > 0 && (
-                  <span className="gallery-count">({totalResults.toLocaleString()} photos found)</span>
-                )}
+                <h2 className="gallery-title">Searching photographs...</h2>
               </div>
             </div>
+            <Loader count={12} />
+          </section>
+        )}
 
-            <ImageGrid photos={photos} onSelectPhoto={(photo) => setSelectedPhoto(photo)} />
+        {/* Results Section */}
+        {!isLoading && !error && query && (
+          <section className="results-section" aria-label="Search results section">
+            {photos.length === 0 ? (
+              <EmptyState query={query} onSelectSuggestion={handleSearch} />
+            ) : (
+              <>
+                <div className="gallery-header">
+                  <div className="gallery-title-wrapper">
+                    <h2 className="gallery-title">
+                      Results for <span className="gallery-query-badge">"{query}"</span>
+                    </h2>
+                    {totalResults > 0 && (
+                      <span className="gallery-count">({totalResults.toLocaleString()} photos found)</span>
+                    )}
+                  </div>
+                </div>
+
+                <ImageGrid photos={photos} onSelectPhoto={(photo) => setSelectedPhoto(photo)} />
+              </>
+            )}
           </section>
         )}
       </main>
