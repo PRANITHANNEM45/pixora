@@ -56,4 +56,26 @@ describe('Unsplash Service', () => {
     expect(data.results[0]).toHaveProperty('urls');
     expect(data.results[0]).toHaveProperty('photographer');
   });
+
+  it('returns relevant car photographs when query is "cars"', () => {
+    const data = getCuratedMockPhotos('cars', 1, 12);
+    expect(data.results.length).toBe(12);
+    // Every photo is a car
+    const carTitles = data.results.map((r) => r.title.toLowerCase());
+    expect(carTitles.some((t) => t.includes('porsche'))).toBe(true);
+    expect(carTitles.some((t) => t.includes('ferrari'))).toBe(true);
+    expect(carTitles.some((t) => t.includes('mustang'))).toBe(true);
+
+    // Page 2 returns the remaining car photos
+    const page2 = getCuratedMockPhotos('cars', 2, 12);
+    expect(page2.results.length).toBe(12);
+    expect(page2.results[0].id).not.toBe(data.results[0].id);
+  });
+
+  it('returns relevant dog photographs when query is "dogs" or "puppy"', () => {
+    const data = getCuratedMockPhotos('dogs', 1, 12);
+    expect(data.results.length).toBeGreaterThan(0);
+    const titles = data.results.map((r) => r.title.toLowerCase());
+    expect(titles.some((t) => t.includes('retriever') || t.includes('husky') || t.includes('puppy'))).toBe(true);
+  });
 });

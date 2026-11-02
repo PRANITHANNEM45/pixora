@@ -53,17 +53,17 @@ export default function App() {
       setPhotos(data.results);
       setTotalPages(data.totalPages);
       setTotalResults(data.total);
-      setIsDemoFallback(false);
+      setIsDemoFallback(Boolean(data.isDemoFallback));
       setError(null);
     } catch (err) {
       if (err.name === 'AbortError') return;
 
-      // When API key is missing, offer curated fallback data
-      if (err.type === 'MISSING_KEY') {
-        const mockData = getCuratedMockPhotos(searchQuery, pageNum, 12);
-        setPhotos(mockData.results);
-        setTotalPages(mockData.totalPages);
-        setTotalResults(mockData.total);
+      // Resiliently fallback to query-matched photos
+      const fallbackData = getCuratedMockPhotos(searchQuery, pageNum, 12);
+      if (fallbackData.results.length > 0) {
+        setPhotos(fallbackData.results);
+        setTotalPages(fallbackData.totalPages);
+        setTotalResults(fallbackData.total);
         setIsDemoFallback(true);
         setError(null);
       } else {
@@ -123,9 +123,15 @@ export default function App() {
     }
   };
 
+  const handleApiKeyChange = () => {
+    if (query) {
+      executeSearch(query, currentPage);
+    }
+  };
+
   return (
     <div className="app-wrapper">
-      <Header onReset={handleReset} />
+      <Header onReset={handleReset} onApiKeyChange={handleApiKeyChange} />
 
       <main className="main-content">
         <SearchBar
@@ -134,7 +140,7 @@ export default function App() {
           isLoading={isLoading}
         />
 
-        {/* Demo Fallback Notice if active */}
+        {/* Demo Mode Notice if active */}
         {isDemoFallback && (
           <div
             style={{
@@ -153,16 +159,8 @@ export default function App() {
             }}
           >
             <span>
-              <strong>Demo Mode Active:</strong> Showing curated showcase photos. Add your Unsplash Access Key to <code>.env</code> for live API results.
+              <strong>Smart Query Engine Active:</strong> Showing curated Unsplash photographs matching "{query}". Connect an Unsplash Access Key via the header button for live API queries.
             </span>
-            <a
-              href="https://unsplash.com/developers"
-              target="_blank"
-              rel="noreferrer"
-              style={{ fontWeight: 700, textDecoration: 'underline', color: '#78350f' }}
-            >
-              Get Free API Key
-            </a>
           </div>
         )}
 

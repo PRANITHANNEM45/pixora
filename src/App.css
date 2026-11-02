@@ -122,6 +122,31 @@
   border-radius: var(--radius-full);
 }
 
+.api-badge-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.35rem 0.75rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--color-text-muted);
+  background: var(--color-bg-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-full);
+  transition: all var(--transition-fast);
+}
+
+.api-badge-btn:hover {
+  background: var(--color-bg-subtle);
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+  transform: translateY(-1px);
+}
+
+.api-badge-btn svg.key-active {
+  color: #10b981;
+}
+
 .badge-dot {
   width: 7px;
   height: 7px;
