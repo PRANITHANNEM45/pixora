@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Search, X, Sparkles } from 'lucide-react';
+import pixoraLogo from '../assets/pixora-logo.png';
 
 const CATEGORIES = [
   { name: 'Cricket', icon: '🏏' },
@@ -41,6 +42,9 @@ export default function SearchBar({ currentQuery, onSearch, isLoading }) {
   return (
     <section className="search-section" aria-labelledby="search-heading">
       <div className="search-hero">
+        <div className="hero-logo-banner">
+          <img src={pixoraLogo} alt="Pixora Logo" className="hero-logo-img" />
+        </div>
         <div className="hero-pill">
           <Sparkles size={14} className="hero-pill-icon" />
           <span>Curated Photography Explorer</span>

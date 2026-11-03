@@ -1,7 +1,7 @@
 import { queryCuratedDatabase } from './photoDatabase';
 
 const UNSPLASH_BASE_URL = 'https://api.unsplash.com';
-const UTM_SOURCE = 'utm_source=pixelhunt&utm_medium=referral';
+const UTM_SOURCE = 'utm_source=pixora&utm_medium=referral';
 
 // Append UTM parameters required by Unsplash API terms
 export function formatUnsplashUrl(url) {

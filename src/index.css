@@ -1,4 +1,4 @@
-/* PixelHunt Design System */
+/* Pixora Design System */
 :root {
   /* Color Palette */
   --color-primary: #6366f1;
@@ -7,7 +7,7 @@
   --color-primary-subtle: rgba(99, 102, 241, 0.08);
 
   --color-accent: #8b5cf6;
-  --color-accent-gradient: linear-gradient(135deg, #6366f1 0%, #a855f7 100%);
+  --color-accent-gradient: linear-gradient(135deg, #06b6d4 0%, #6366f1 50%, #a855f7 100%);
   --color-accent-glow: rgba(99, 102, 241, 0.25);
 
   --color-bg-page: #f8fafc;

@@ -8,7 +8,7 @@ describe('App Integration Flow', () => {
   it('renders application header and search input on startup', () => {
     render(<App />);
 
-    expect(screen.getByLabelText(/PixelHunt Home/i)).toBeInTheDocument();
+    expect(screen.getByLabelText(/Pixora Home/i)).toBeInTheDocument();
     expect(screen.getByPlaceholderText(/search photos/i)).toBeInTheDocument();
     expect(screen.getByText(/Photos provided by/i)).toBeInTheDocument();
   });

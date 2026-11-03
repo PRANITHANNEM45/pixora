@@ -1,8 +1,8 @@
-# PixelHunt — Image Search Application
+# Pixora — Image Search Application
 
-PixelHunt is a modern, responsive single-screen web application built with **ReactJS** and the **Unsplash Search Photos API**. It provides an intuitive, visually immersive interface enabling users to discover, search, and preview millions of curated high-resolution photographs with smooth interactions and accessibility.
+Pixora is a modern, responsive single-screen web application built with **ReactJS** and the **Unsplash Search Photos API**. It provides an intuitive, visually immersive interface enabling users to discover, search, and preview millions of curated high-resolution photographs with smooth interactions and accessibility.
 
-![PixelHunt Application Preview](https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1200&q=80)
+![Pixora Logo](public/pixora-logo.png)
 
 ---
 
@@ -20,7 +20,7 @@ PixelHunt is a modern, responsive single-screen web application built with **Rea
 * **Pagination Controls:** Previous/Next buttons, active page indicators, total pages count, and smooth auto-scroll to results on page change.
 * **Resilient Error & Empty States:** Clear feedback for empty search queries, network failures, rate limit handling (50 req/hr Unsplash demo limit), and missing API keys.
 * **Curated Fallback Showcase Mode:** When no API key is set, the application gracefully activates an interactive demo showcase so evaluators can test all UI interactions out-of-the-box.
-* **Unsplash Compliance & Attribution:** Full compliance with Unsplash API guidelines including UTM referral links (`utm_source=pixelhunt&utm_medium=referral`) and photographer profile attribution.
+* **Unsplash Compliance & Attribution:** Full compliance with Unsplash API guidelines including UTM referral links (`utm_source=pixora&utm_medium=referral`) and photographer profile attribution.
 
 ---
 
@@ -107,7 +107,7 @@ cp .env.example .env
 VITE_UNSPLASH_ACCESS_KEY=your_actual_unsplash_access_key
 ```
 
-> **Note:** If no key is set or the key is not yet configured, PixelHunt automatically runs in **Curated Showcase Demo Mode**, allowing you to preview the application and test search and modal features immediately.
+> **Note:** If no key is set or the key is not yet configured, Pixora automatically runs in **Curated Showcase Demo Mode**, allowing you to preview the application and test search and modal features immediately.
 
 ### 5. Start the Development Server
 ```bash
@@ -166,7 +166,7 @@ In compliance with the project requirements, development was conducted and track
 
 ## ⚖️ Unsplash API Guidelines Compliance
 
-* **API Attribution:** Every photograph links directly to Unsplash with mandatory referral UTM tracking: `?utm_source=pixelhunt&utm_medium=referral`.
+* **API Attribution:** Every photograph links directly to Unsplash with mandatory referral UTM tracking: `?utm_source=pixora&utm_medium=referral`.
 * **Photographer Credit:** Photographer names link to their official Unsplash profiles.
 * **Credential Safety:** The `.env` file is excluded from Git version control via `.gitignore`, and `.env.example` provides an empty template.
 * **Rate Limits:** In accordance with Unsplash's 50 requests/hour limit for demo applications, requests are debounced and cancellations are applied to in-flight requests.

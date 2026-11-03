@@ -23,10 +23,10 @@ const samplePhoto = {
     name: 'Alex Hunter',
     username: 'alexhunter',
     avatar: 'https://example.com/alex.jpg',
-    link: 'https://unsplash.com/@alexhunter?utm_source=pixelhunt&utm_medium=referral'
+    link: 'https://unsplash.com/@alexhunter?utm_source=pixora&utm_medium=referral'
   },
   links: {
-    html: 'https://unsplash.com/photos/test-1?utm_source=pixelhunt&utm_medium=referral',
+    html: 'https://unsplash.com/photos/test-1?utm_source=pixora&utm_medium=referral',
     download: 'https://unsplash.com/photos/test-1/download'
   }
 };

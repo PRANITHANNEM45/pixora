@@ -5,11 +5,11 @@ describe('Unsplash Service', () => {
   it('appends UTM parameters for proper Unsplash API attribution', () => {
     const url = 'https://unsplash.com/photos/123';
     const formatted = formatUnsplashUrl(url);
-    expect(formatted).toBe('https://unsplash.com/photos/123?utm_source=pixelhunt&utm_medium=referral');
+    expect(formatted).toBe('https://unsplash.com/photos/123?utm_source=pixora&utm_medium=referral');
 
     const urlWithParams = 'https://unsplash.com/photos/123?client=true';
     const formattedWithParams = formatUnsplashUrl(urlWithParams);
-    expect(formattedWithParams).toBe('https://unsplash.com/photos/123?client=true&utm_source=pixelhunt&utm_medium=referral');
+    expect(formattedWithParams).toBe('https://unsplash.com/photos/123?client=true&utm_source=pixora&utm_medium=referral');
   });
 
   it('normalizes raw Unsplash photo response object accurately', () => {
@@ -45,8 +45,8 @@ describe('Unsplash Service', () => {
     expect(normalized.title).toBe('Crystal clear lake surrounded by mountains');
     expect(normalized.urls.regular).toBe('https://images.unsplash.com/regular.jpg');
     expect(normalized.photographer.name).toBe('Jane Doe');
-    expect(normalized.photographer.link).toContain('utm_source=pixelhunt');
-    expect(normalized.links.html).toContain('utm_source=pixelhunt');
+    expect(normalized.photographer.link).toContain('utm_source=pixora');
+    expect(normalized.links.html).toContain('utm_source=pixora');
   });
 
   it('provides curated fallback mock photos when API key is not configured', () => {

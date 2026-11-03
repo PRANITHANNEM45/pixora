@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { Camera, Sparkles, Key, Check, X } from 'lucide-react';
+import { Sparkles, Key, Check, X } from 'lucide-react';
+import pixoraLogo from '../assets/pixora-logo.png';
 
 export default function Header({ onReset, onApiKeyChange }) {
   const [showKeyModal, setShowKeyModal] = useState(false);
@@ -63,15 +64,14 @@ export default function Header({ onReset, onApiKeyChange }) {
                 onReset();
               }
             }}
-            aria-label="PixelHunt Home"
+            aria-label="Pixora Home"
           >
-            <div className="logo-icon-wrapper">
-              <Camera className="logo-icon" size={24} />
-              <Sparkles className="logo-badge" size={12} />
+            <div className="logo-image-wrapper">
+              <img src={pixoraLogo} alt="Pixora" className="brand-logo-img" />
             </div>
             <div className="brand-text">
-              <span className="brand-name">Pixel<span className="accent-text">Hunt</span></span>
-              <span className="brand-subtext">Unsplash Visual Explorer</span>
+              <span className="brand-name">PIX<span className="accent-text">ORA</span></span>
+              <span className="brand-subtext">Visual Discovery Engine</span>
             </div>
           </a>
 
@@ -129,7 +129,7 @@ export default function Header({ onReset, onApiKeyChange }) {
             </div>
 
             <p style={{ fontSize: '0.875rem', color: 'var(--color-text-muted)', lineHeight: '1.5', marginBottom: '1.25rem' }}>
-              PixelHunt includes a smart built-in photo engine that automatically displays relevant high-resolution photos for any search query. You can also provide an official Unsplash Access Key for live API requests.
+              Pixora includes a smart built-in photo engine that automatically displays relevant high-resolution photos for any search query. You can also provide an official Unsplash Access Key for live API requests.
             </p>
 
             <form onSubmit={handleSaveKey}>

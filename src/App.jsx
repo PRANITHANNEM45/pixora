@@ -238,11 +238,11 @@ export default function App() {
 
       <footer className="site-footer">
         <div className="footer-content">
-          <p>© {new Date().getFullYear()} PixelHunt. High-quality visual discovery engine.</p>
+          <p>© {new Date().getFullYear()} Pixora. High-quality visual discovery engine.</p>
           <p className="footer-attribution">
             Photos provided by{' '}
             <a
-              href="https://unsplash.com/?utm_source=pixelhunt&utm_medium=referral"
+              href="https://unsplash.com/?utm_source=pixora&utm_medium=referral"
               target="_blank"
               rel="noopener noreferrer"
             >
