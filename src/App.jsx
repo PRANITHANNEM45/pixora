@@ -140,31 +140,7 @@ export default function App() {
           isLoading={isLoading}
         />
 
-        {/* Demo Mode Notice if active */}
-        {isDemoFallback && (
-          <div
-            style={{
-              padding: '0.75rem 1.25rem',
-              marginBottom: '1.5rem',
-              background: '#fef3c7',
-              border: '1px solid #fde68a',
-              borderRadius: 'var(--radius-md)',
-              fontSize: '0.85rem',
-              color: '#92400e',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'space-between',
-              gap: '1rem',
-              flexWrap: 'wrap'
-            }}
-          >
-            <span>
-              <strong>Smart Query Engine Active:</strong> Showing curated Unsplash photographs matching "{query}". Connect an Unsplash Access Key via the header button for live API queries.
-            </span>
-          </div>
-        )}
-
-        {/* Error State (when not in fallback demo mode) */}
+        {/* Error State */}
         {error && !isDemoFallback && (
           <ErrorState
             error={error}

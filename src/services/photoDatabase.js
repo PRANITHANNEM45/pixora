@@ -1,14 +1,226 @@
-/**
- * Curated Photographic Database with Authentic Unsplash Photos
- * Categorized by domain with keywords, photographer attribution, and high-res URLs.
- */
+// Mock photo database used when working without an API key or offline
+// Covers common search terms: cricket, bmw, cars, audi, mercedes, football, tennis, dogs, cats, nature, etc.
 
-export const CATEGORIES = {
+export const MOCK_DATABASE = {
+  cricket: [
+    {
+      id: 'cricket-1',
+      title: 'Red Cricket Ball and Wooden Bat on Green Pitch',
+      description: 'Leather seam cricket ball resting against a willow cricket bat on the crease',
+      alt_description: 'Cricket ball and bat on pitch grass',
+      urlId: 'photo-1531415074968-036ba1b575da',
+      width: 4000,
+      height: 2667,
+      likes: 3820,
+      color: '#15803d',
+      photographer: { name: 'Alessandro Bogliari', username: 'abogliari' },
+      tags: ['cricket', 'bat', 'ball', 'pitch', 'sport', 'match', 'wicket', 'ipl', 'test cricket']
+    },
+    {
+      id: 'cricket-2',
+      title: 'Cricket Stadium Under Bright Floodlights at Night',
+      description: 'Massive circular cricket ground illuminated for an international day-night match',
+      alt_description: 'Cricket stadium with night floodlights and green outfield',
+      urlId: 'photo-1540747913346-19e32dc3e97e',
+      width: 4200,
+      height: 2800,
+      likes: 5120,
+      color: '#0284c7',
+      photographer: { name: 'Fauzan Saari', username: 'fauzansaari' },
+      tags: ['cricket', 'stadium', 'ground', 'floodlights', 'arena', 'night match', 't20', 'crowd']
+    },
+    {
+      id: 'cricket-3',
+      title: 'Batsman Striking Powerful Pull Shot at the Crease',
+      description: 'Cricket batsman in full gear executing a hook shot against fast bowling',
+      alt_description: 'Batsman hitting ball in cricket match',
+      urlId: 'photo-1624526267942-ab0ff8a3e972',
+      width: 3840,
+      height: 2560,
+      likes: 4290,
+      color: '#334155',
+      photographer: { name: 'Harpal Singh', username: 'harpalsingh' },
+      tags: ['cricket', 'batsman', 'batting', 'shot', 'action', 'six', 'cricketer', 'wicket']
+    },
+    {
+      id: 'cricket-4',
+      title: 'Cricket Batsman in White Uniform at Batting Stance',
+      description: 'Traditional test match cricketer waiting for the bowler in focused batting stance',
+      alt_description: 'Cricket player standing at batting crease wearing pads and helmet',
+      urlId: 'photo-1589801258579-18e091f4ca26',
+      width: 3900,
+      height: 2600,
+      likes: 3740,
+      color: '#f8fafc',
+      photographer: { name: 'Chirag S', username: 'chirags' },
+      tags: ['cricket', 'test match', 'whites', 'helmet', 'pads', 'crease', 'batsman', 'focus']
+    },
+    {
+      id: 'cricket-5',
+      title: 'Fast Bowler in Mid-Delivery Stride',
+      description: 'Pace bowler gripping the red leather ball at full run-up delivery leap',
+      alt_description: 'Cricket bowler bowling fast ball during cricket game',
+      urlId: 'photo-1587385789097-0197a7fbd179',
+      width: 4100,
+      height: 2700,
+      likes: 3450,
+      color: '#166534',
+      photographer: { name: 'Vivek Kumar', username: 'vivekkumar' },
+      tags: ['cricket', 'bowler', 'bowling', 'fast bowling', 'pace', 'seam', 'wicket', 'cricketer']
+    },
+    {
+      id: 'cricket-6',
+      title: 'Wooden Cricket Wickets and Bails in Golden Light',
+      description: 'Close up of the three wooden stumps and bails set on the cricket pitch',
+      alt_description: 'Wooden cricket stumps and bails on pitch',
+      urlId: 'photo-1593341646782-e0b495cff86d',
+      width: 3800,
+      height: 2533,
+      likes: 2980,
+      color: '#ca8a04',
+      photographer: { name: 'Patrick Case', username: 'patrickcase' },
+      tags: ['cricket', 'stumps', 'wickets', 'bails', 'pitch', 'out', 'bowled', 'cricket ground']
+    },
+    {
+      id: 'cricket-7',
+      title: 'Scenic Countryside Cricket Ground on Sunny Afternoon',
+      description: 'Classic village green cricket match in progress with lush trees and pavilion',
+      alt_description: 'Cricket match on scenic green countryside field',
+      urlId: 'photo-1512719994953-eabf50895df7',
+      width: 4000,
+      height: 2667,
+      likes: 3120,
+      color: '#15803d',
+      photographer: { name: 'Sam Balye', username: 'sambalye' },
+      tags: ['cricket', 'countryside', 'village', 'field', 'english cricket', 'summer', 'grass']
+    },
+    {
+      id: 'cricket-8',
+      title: 'Cricket Players Celebrating Wicket in Field',
+      description: 'Team celebration after taking a crucial wicket during intense match',
+      alt_description: 'Cricket team celebrating dismissal on field',
+      urlId: 'photo-1508098682722-e99c43a406b2',
+      width: 3900,
+      height: 2600,
+      likes: 4190,
+      color: '#0f766e',
+      photographer: { name: 'Pranav Kumar', username: 'pranavkumar' },
+      tags: ['cricket', 'celebration', 'team', 'wicket', 'match', 'players', 'sportsmanship']
+    }
+  ],
+
+  bmw: [
+    {
+      id: 'bmw-1',
+      title: 'Sunset Orange BMW M4 Competition Coupe',
+      description: 'Twin-turbo BMW M4 sports coupe parked on mountain road during sunset',
+      alt_description: 'Orange BMW M4 sports car in golden hour',
+      urlId: 'photo-1525609004556-c46c7d6cf023',
+      width: 3900,
+      height: 2600,
+      likes: 4890,
+      color: '#c2410c',
+      photographer: { name: 'Stefan Rodriguez', username: 'stefanrodriguez' },
+      tags: ['bmw', 'm4', 'competition', 'coupe', 'german', 'car', 'cars', 'vehicle', 'sports car', 'speed']
+    },
+    {
+      id: 'bmw-2',
+      title: 'BMW M8 Gran Coupe in Stealth Black',
+      description: 'Over 600 horsepower V8 BMW M8 luxury super coupe with aggressive styling',
+      alt_description: 'Stealth black BMW M8 luxury performance car',
+      urlId: 'photo-1580273916550-e323be2ae537',
+      width: 4000,
+      height: 2667,
+      likes: 5410,
+      color: '#0f172a',
+      photographer: { name: 'Alexandre Debiève', username: 'alexandre_d' },
+      tags: ['bmw', 'm8', 'v8', 'gran coupe', 'm power', 'luxury', 'german', 'black', 'cars']
+    },
+    {
+      id: 'bmw-3',
+      title: 'BMW 3-Series Sports Sedan in Urban Setting',
+      description: 'Clean modern BMW 3 Series sedan with kidney grille and sharp LED headlights',
+      alt_description: 'Black BMW sedan parked on city street',
+      urlId: 'photo-1567818735868-e71b99932e29',
+      width: 4100,
+      height: 2700,
+      likes: 3820,
+      color: '#1e293b',
+      photographer: { name: 'Cemre Nur', username: 'cemrenur' },
+      tags: ['bmw', '3 series', 'sedan', 'german', 'luxury', 'car', 'urban', 'executive']
+    },
+    {
+      id: 'bmw-4',
+      title: 'Yas Marina Blue BMW M4 Track Stance',
+      description: 'Performance tuned BMW M4 coupe with carbon fiber front splitter and rims',
+      alt_description: 'Blue BMW M4 performance car parked on asphalt',
+      urlId: 'photo-1555215695-3004980ad54e',
+      width: 3840,
+      height: 2560,
+      likes: 6200,
+      color: '#0284c7',
+      photographer: { name: 'Tyler Clemmensen', username: 'tylerclemmensen' },
+      tags: ['bmw', 'm4', 'blue', 'm performance', 'track', 'tuning', 'car', 'german', 'speed']
+    },
+    {
+      id: 'bmw-5',
+      title: 'Classic Vintage BMW E30 M3 Sport Evolution',
+      description: 'Legendary boxy 1980s BMW E30 M3 touring car legend in showroom condition',
+      alt_description: 'Classic vintage BMW M3 sports car',
+      urlId: 'photo-1556189250-72ba954cfc2b',
+      width: 3900,
+      height: 2600,
+      likes: 4760,
+      color: '#991b1b',
+      photographer: { name: 'Samuele Errico', username: 'samuele_errico' },
+      tags: ['bmw', 'e30', 'm3', 'classic', 'vintage', 'retro', 'legend', 'car', 'heritage']
+    },
+    {
+      id: 'bmw-6',
+      title: 'BMW Laserlight Headlight Signature in Night Glow',
+      description: 'Iconic dual halo LED daytime running lights of contemporary BMW',
+      alt_description: 'Close up of illuminated BMW headlights at night',
+      urlId: 'photo-1617531653332-bd46c24f2068',
+      width: 3800,
+      height: 2533,
+      likes: 3940,
+      color: '#1e1b4b',
+      photographer: { name: 'Maxim Hopman', username: 'maximhopman' },
+      tags: ['bmw', 'headlight', 'laserlight', 'night', 'grille', 'close up', 'car detail']
+    },
+    {
+      id: 'bmw-7',
+      title: 'BMW M2 Performance Coupe on Canyon Road',
+      description: 'Compact rear-wheel-drive BMW M2 car carving through mountain canyon curves',
+      alt_description: 'BMW sports car cornering on mountain road',
+      urlId: 'photo-1508974239320-0a029497e820',
+      width: 4000,
+      height: 2667,
+      likes: 4320,
+      color: '#0f766e',
+      photographer: { name: 'Carl Raw', username: 'carliscool' },
+      tags: ['bmw', 'm2', 'drift', 'canyon', 'driving', 'road', 'handling', 'fast']
+    },
+    {
+      id: 'bmw-8',
+      title: 'BMW X5 Luxury SUV All-Wheel Drive',
+      description: 'Spacious high-end BMW luxury SUV parked against scenic landscape',
+      alt_description: 'BMW X5 luxury SUV outdoors',
+      urlId: 'photo-1519641471654-76ce0107ad1b',
+      width: 4100,
+      height: 2700,
+      likes: 3150,
+      color: '#475569',
+      photographer: { name: 'Neven Krcmarek', username: 'nevenkrcmarek' },
+      tags: ['bmw', 'x5', 'suv', 'x-drive', 'luxury', 'family', '4x4', 'vehicle']
+    }
+  ],
+
   cars: [
     {
       id: 'car-1',
       title: 'Black Porsche 911 on Scenic Alpine Pass',
-      description: 'High-performance Porsche 911 sports car parked on an open mountain road at golden hour',
+      description: 'Porsche 911 sports car parked on an open mountain road at golden hour',
       alt_description: 'Black Porsche 911 sports car on open mountain highway',
       urlId: 'photo-1503376780353-7e6692767b70',
       width: 3840,
@@ -16,12 +228,12 @@ export const CATEGORIES = {
       likes: 4210,
       color: '#1e293b',
       photographer: { name: 'Campbell', username: 'campbell' },
-      tags: ['car', 'cars', 'porsche', 'sports car', 'supercar', 'vehicle', 'automobile', 'speed', 'luxury', 'german']
+      tags: ['car', 'cars', 'porsche', '911', 'sports car', 'supercar', 'vehicle', 'automobile']
     },
     {
       id: 'car-2',
       title: 'Rosso Corsa Ferrari 488 Supercar',
-      description: 'Stunning Italian Ferrari supercar with aerodynamic bodywork in studio lighting',
+      description: 'Italian Ferrari supercar with aerodynamic bodywork in studio lighting',
       alt_description: 'Red Ferrari sports car in high contrast lighting',
       urlId: 'photo-1583121274602-3e2820c69888',
       width: 4000,
@@ -29,12 +241,12 @@ export const CATEGORIES = {
       likes: 5890,
       color: '#b91c1c',
       photographer: { name: 'Dhiva Krishna', username: 'dhivakrishna' },
-      tags: ['car', 'cars', 'ferrari', 'supercar', 'red', 'italian', 'racing', 'fast', 'auto', 'vehicle']
+      tags: ['car', 'cars', 'ferrari', 'supercar', 'red', 'italian', 'racing', 'fast']
     },
     {
       id: 'car-3',
       title: 'Classic Ford Mustang Vintage American Muscle',
-      description: 'Classic 1960s Ford Mustang coupe parked on city asphalt with iconic chrome details',
+      description: '1960s Ford Mustang coupe parked on city asphalt with iconic chrome details',
       alt_description: 'Vintage classic Ford Mustang muscle car',
       urlId: 'photo-1544829099-b9a0c07fad1a',
       width: 3600,
@@ -42,12 +254,12 @@ export const CATEGORIES = {
       likes: 3850,
       color: '#334155',
       photographer: { name: 'Joey Banks', username: 'joeyabanks' },
-      tags: ['car', 'cars', 'mustang', 'ford', 'muscle car', 'classic', 'vintage', 'retro', 'american', 'v8']
+      tags: ['car', 'cars', 'mustang', 'ford', 'muscle car', 'classic', 'vintage', 'v8']
     },
     {
       id: 'car-4',
       title: 'Lamborghini Huracan Performance Edition',
-      description: 'Sharp angular lines of an exotic Italian Lamborghini hypercar in stealth finish',
+      description: 'Angular lines of an exotic Italian Lamborghini hypercar in stealth finish',
       alt_description: 'Dark grey Lamborghini supercar parked in urban scene',
       urlId: 'photo-1511919884226-fd3cad34687c',
       width: 4200,
@@ -55,23 +267,10 @@ export const CATEGORIES = {
       likes: 6420,
       color: '#0f172a',
       photographer: { name: 'Olav Tvedt', username: 'olav_tvedt' },
-      tags: ['car', 'cars', 'lamborghini', 'huracan', 'supercar', 'hypercar', 'stealth', 'fast', 'luxury']
+      tags: ['car', 'cars', 'lamborghini', 'huracan', 'supercar', 'hypercar', 'stealth', 'lambo']
     },
     {
       id: 'car-5',
-      title: 'Sunset Orange BMW M4 Competition Coupe',
-      description: 'Track-ready BMW M4 performance sports coupe gleaming under sunset skies',
-      alt_description: 'Orange BMW M4 sports car in golden hour',
-      urlId: 'photo-1525609004556-c46c7d6cf023',
-      width: 3900,
-      height: 2600,
-      likes: 3120,
-      color: '#c2410c',
-      photographer: { name: 'Stefan Rodriguez', username: 'stefanrodriguez' },
-      tags: ['car', 'cars', 'bmw', 'm4', 'coupe', 'german', 'track', 'orange', 'tuning', 'drift']
-    },
-    {
-      id: 'car-6',
       title: 'Electric Blue Chevrolet Corvette Stingray',
       description: 'American sports car legend with aggressive mid-engine styling',
       alt_description: 'Blue Corvette sports car side profile',
@@ -81,12 +280,12 @@ export const CATEGORIES = {
       likes: 2980,
       color: '#0369a1',
       photographer: { name: 'Sven D', username: 'svend' },
-      tags: ['car', 'cars', 'corvette', 'stingray', 'chevrolet', 'blue', 'sports car', 'american', 'fast']
+      tags: ['car', 'cars', 'corvette', 'stingray', 'chevrolet', 'blue', 'sports car', 'american']
     },
     {
-      id: 'car-7',
+      id: 'car-6',
       title: 'Audi R8 V10 Quattro Supercar',
-      description: 'Silver Audi R8 flagship with Quattro all-wheel drive parked against architectural backdrop',
+      description: 'Silver Audi R8 flagship with Quattro all-wheel drive parked outdoors',
       alt_description: 'Silver Audi R8 supercar outdoors',
       urlId: 'photo-1542282088-72c9c27ed0cd',
       width: 4000,
@@ -97,9 +296,9 @@ export const CATEGORIES = {
       tags: ['car', 'cars', 'audi', 'r8', 'quattro', 'v10', 'german', 'luxury', 'supercar']
     },
     {
-      id: 'car-8',
+      id: 'car-7',
       title: 'Vintage Volkswagen Beetle Classic Bug',
-      description: 'Charming retro Volkswagen Beetle restored in pastel mint finish on coastal road',
+      description: 'Retro Volkswagen Beetle restored in pastel mint finish on coastal road',
       alt_description: 'Pastel classic vintage Volkswagen Beetle car',
       urlId: 'photo-1502877338535-766e1452684a',
       width: 3500,
@@ -107,49 +306,10 @@ export const CATEGORIES = {
       likes: 3410,
       color: '#0d9488',
       photographer: { name: 'Tudor Stanciu', username: 'tudorstanciu' },
-      tags: ['car', 'cars', 'vw', 'volkswagen', 'beetle', 'bug', 'vintage', 'classic', 'cute', 'retro']
+      tags: ['car', 'cars', 'vw', 'volkswagen', 'beetle', 'bug', 'vintage', 'classic', 'retro']
     },
     {
-      id: 'car-9',
-      title: 'Aston Martin Vantage British Luxury GT',
-      description: 'Refined craftsmanship meets raw power in this British luxury grand tourer',
-      alt_description: 'Sleek dark Aston Martin luxury sports car',
-      urlId: 'photo-1617814076367-b759c7d7e738',
-      width: 3840,
-      height: 2400,
-      likes: 3950,
-      color: '#1e293b',
-      photographer: { name: 'Adrian N', username: 'adriann' },
-      tags: ['car', 'cars', 'aston martin', 'british', 'luxury', 'james bond', 'gt', 'vantage']
-    },
-    {
-      id: 'car-10',
-      title: 'Off-Road 4x4 Overland Adventure Vehicle',
-      description: 'Rugged all-terrain truck equipped for wilderness exploration in desert sand dunes',
-      alt_description: 'Off-road 4x4 truck in desert landscape',
-      urlId: 'photo-1519641471654-76ce0107ad1b',
-      width: 4200,
-      height: 2800,
-      likes: 2480,
-      color: '#d97706',
-      photographer: { name: 'Neven Krcmarek', username: 'nevenkrcmarek' },
-      tags: ['car', 'cars', 'truck', '4x4', 'offroad', 'suv', 'overland', 'adventure', 'desert', 'jeep']
-    },
-    {
-      id: 'car-11',
-      title: 'Red Sports Car Cruising Neon Downtown',
-      description: 'Glossy red finish reflecting the evening city lights on open boulevard',
-      alt_description: 'Red modern sports car driving down city street',
-      urlId: 'photo-1570733117311-d990c3816c47',
-      width: 3700,
-      height: 2467,
-      likes: 3120,
-      color: '#991b1b',
-      photographer: { name: 'Roberto Nickson', username: 'rpnickson' },
-      tags: ['car', 'cars', 'red', 'city', 'night', 'sports car', 'drive', 'street']
-    },
-    {
-      id: 'car-12',
+      id: 'car-8',
       title: 'Mercedes-AMG GT Performance Coupe',
       description: 'Twin-turbo V8 Mercedes-AMG grand tourer with long sculpted bonnet in silver',
       alt_description: 'Mercedes-AMG GT luxury sports car',
@@ -159,38 +319,12 @@ export const CATEGORIES = {
       likes: 4320,
       color: '#475569',
       photographer: { name: 'Kahl Orr', username: 'kahlorr' },
-      tags: ['car', 'cars', 'mercedes', 'amg', 'benz', 'german', 'luxury', 'gt', 'v8', 'coupe']
+      tags: ['car', 'cars', 'mercedes', 'amg', 'benz', 'german', 'luxury', 'coupe']
     },
     {
-      id: 'car-13',
-      title: 'McLaren 720S Aerodynamic Hypercar',
-      description: 'Formula 1 derived carbon-fibre hypercar with dihedral doors on race track',
-      alt_description: 'McLaren 720S British hypercar on track',
-      urlId: 'photo-1508974239320-0a029497e820',
-      width: 4100,
-      height: 2700,
-      likes: 5120,
-      color: '#ea580c',
-      photographer: { name: 'Carl Raw', username: 'carliscool' },
-      tags: ['car', 'cars', 'mclaren', '720s', 'hypercar', 'supercar', 'racing', 'track', 'f1']
-    },
-    {
-      id: 'car-14',
-      title: 'Mercedes-Benz Executive Luxury Sedan',
-      description: 'Contemporary premium business saloon with illuminated LED headlight signature',
-      alt_description: 'Mercedes-Benz luxury black sedan in studio',
-      urlId: 'photo-1618843479313-40f8afb4b4d8',
-      width: 3900,
-      height: 2600,
-      likes: 2740,
-      color: '#0f172a',
-      photographer: { name: 'Alex Suprun', username: 'alexsuprun' },
-      tags: ['car', 'cars', 'mercedes', 'sedan', 'luxury', 'executive', 'black', 'limousine']
-    },
-    {
-      id: 'car-15',
+      id: 'car-9',
       title: 'Tesla Model S Electric Performance',
-      description: 'Zero-emission high-tech electric sedan parked at futuristic charging terminal',
+      description: 'Electric performance sedan parked at modern charging station',
       alt_description: 'White Tesla electric vehicle parked',
       urlId: 'photo-1568605117036-5fe5e7bab0b7',
       width: 4000,
@@ -198,12 +332,12 @@ export const CATEGORIES = {
       likes: 3670,
       color: '#f8fafc',
       photographer: { name: 'Austin Neill', username: 'austinneill' },
-      tags: ['car', 'cars', 'tesla', 'electric', 'ev', 'model s', 'tech', 'clean energy', 'autopilot']
+      tags: ['car', 'cars', 'tesla', 'electric', 'ev', 'model s', 'vehicle']
     },
     {
-      id: 'car-16',
-      title: 'Nissan GT-R Nismo Japanese Legend',
-      description: 'Twin-turbo Godzilla sports coupe tuned for maximum downforce and acceleration',
+      id: 'car-10',
+      title: 'Nissan GT-R Nismo Japanese Supercar',
+      description: 'Twin-turbo Japanese sports coupe tuned for maximum downforce',
       alt_description: 'Nissan GT-R sports car rear view',
       urlId: 'photo-1541348263662-e0c8de4259ba',
       width: 3840,
@@ -211,12 +345,12 @@ export const CATEGORIES = {
       likes: 4980,
       color: '#334155',
       photographer: { name: 'Tyler Clemmensen', username: 'tylerclemmensen' },
-      tags: ['car', 'cars', 'nissan', 'gtr', 'godzilla', 'jdm', 'japanese', 'turbo', 'tuning']
+      tags: ['car', 'cars', 'nissan', 'gtr', 'godzilla', 'jdm', 'japanese', 'turbo']
     },
     {
-      id: 'car-17',
+      id: 'car-11',
       title: 'Dodge Challenger SRT Hellcat Widebody',
-      description: 'High-horsepower supercharged American muscle car roaring on open dragstrip',
+      description: 'Supercharged American muscle car roaring on open dragstrip',
       alt_description: 'Black Dodge Challenger Hellcat muscle car',
       urlId: 'photo-1553440569-bcc63803a83d',
       width: 4200,
@@ -224,90 +358,12 @@ export const CATEGORIES = {
       likes: 4560,
       color: '#0f172a',
       photographer: { name: 'Austin Ramsey', username: 'austinramsey' },
-      tags: ['car', 'cars', 'dodge', 'challenger', 'hellcat', 'muscle car', 'hemi', 'v8', 'american']
+      tags: ['car', 'cars', 'dodge', 'challenger', 'hellcat', 'muscle car', 'v8']
     },
     {
-      id: 'car-18',
-      title: 'Mercedes-Benz Sports Coupe LED Tail Light',
-      description: 'Night photography capturing the glowing red taillights and dual exhausts',
-      alt_description: 'Mercedes-Benz sports car rear taillights at night',
-      urlId: 'photo-1514316454349-750a7fd3da3a',
-      width: 3600,
-      height: 2400,
-      likes: 3190,
-      color: '#7f1d1d',
-      photographer: { name: 'Samuele Errico', username: 'samuele_errico' },
-      tags: ['car', 'cars', 'mercedes', 'taillight', 'night', 'exhaust', 'dark', 'glow']
-    },
-    {
-      id: 'car-19',
-      title: 'Vintage Retro Convertible Coastal Cruise',
-      description: 'Classic open-top roadster enjoying ocean breeze along Pacific Coast Highway',
-      alt_description: 'Classic vintage convertible car on coastal drive',
-      urlId: 'photo-1549399542-7e3f8b79c341',
-      width: 3900,
-      height: 2600,
-      likes: 2890,
-      color: '#0284c7',
-      photographer: { name: 'Gavin Allanwood', username: 'allanwood' },
-      tags: ['car', 'cars', 'convertible', 'roadster', 'vintage', 'classic', 'coastal', 'summer']
-    },
-    {
-      id: 'car-20',
-      title: 'BMW 3-Series Modern Sports Sedan',
-      description: 'Clean athletic German sports sedan finished in sapphire black metallic',
-      alt_description: 'Black BMW sedan parked in urban street',
-      urlId: 'photo-1567818735868-e71b99932e29',
-      width: 4000,
-      height: 2667,
-      likes: 3410,
-      color: '#1e293b',
-      photographer: { name: 'Cemre Nur', username: 'cemrenur' },
-      tags: ['car', 'cars', 'bmw', 'sedan', 'german', 'black', 'urban', 'luxury']
-    },
-    {
-      id: 'car-21',
-      title: 'Candy Red Mercedes Performance Coupe',
-      description: 'Deep candy red paintwork glistening in the afternoon sun',
-      alt_description: 'Red Mercedes luxury performance car',
-      urlId: 'photo-1605559424843-9e4c228bf1c2',
-      width: 3840,
-      height: 2560,
-      likes: 3680,
-      color: '#dc2626',
-      photographer: { name: 'Maxim Hopman', username: 'maximhopman' },
-      tags: ['car', 'cars', 'mercedes', 'red', 'coupe', 'glossy', 'speed']
-    },
-    {
-      id: 'car-22',
-      title: '1967 Mustang Fastback Chrome Grille',
-      description: 'Close-up detail of the running horse emblem and dual headlamps on classic muscle',
-      alt_description: 'Ford Mustang vintage grille and emblem close up',
-      urlId: 'photo-1494976388531-d1058494cdd8',
-      width: 4200,
-      height: 2800,
-      likes: 4190,
-      color: '#475569',
-      photographer: { name: 'Joey Banks', username: 'joeyabanks' },
-      tags: ['car', 'cars', 'mustang', 'grille', 'emblem', 'classic', 'vintage', 'muscle']
-    },
-    {
-      id: 'car-23',
-      title: 'BMW M8 Competition Flagship Super Coupe',
-      description: 'Over 600 horsepower V8 grand tourer sitting low and wide on multi-spoke rims',
-      alt_description: 'BMW M8 luxury sports car front view',
-      urlId: 'photo-1580273916550-e323be2ae537',
-      width: 3900,
-      height: 2600,
-      likes: 4720,
-      color: '#0f172a',
-      photographer: { name: 'Alexandre Debiève', username: 'alexandre_d' },
-      tags: ['car', 'cars', 'bmw', 'm8', 'competition', 'v8', 'coupe', 'german', 'fast']
-    },
-    {
-      id: 'car-24',
+      id: 'car-12',
       title: 'Vintage Porsche 356 Speedster Classic',
-      description: 'Legendary rounded lightweight German roadster in pristine concourse condition',
+      description: 'Legendary rounded lightweight German roadster in concourse condition',
       alt_description: 'Classic Porsche 356 vintage roadster',
       urlId: 'photo-1506015391300-4802dc74de2e',
       width: 4100,
@@ -315,88 +371,91 @@ export const CATEGORIES = {
       likes: 3910,
       color: '#d97706',
       photographer: { name: 'Gilles Lambert', username: 'gilleslambert' },
-      tags: ['car', 'cars', 'porsche', '356', 'speedster', 'classic', 'vintage', 'rare', 'german']
+      tags: ['car', 'cars', 'porsche', '356', 'speedster', 'classic', 'vintage']
     }
   ],
 
-  bikes: [
+  football: [
     {
-      id: 'bike-1',
-      title: 'Custom Cafe Racer Motorcycle',
-      description: 'Handcrafted vintage cafe racer motorcycle with leather seat and clip-on bars',
-      alt_description: 'Custom cafe racer motorcycle on street',
-      urlId: 'photo-1558981403-c5f9899a28bc',
-      width: 3840,
-      height: 2400,
-      likes: 4200,
-      color: '#1e293b',
-      photographer: { name: 'Harley-Davidson', username: 'harleydavidson' },
-      tags: ['bike', 'bikes', 'motorcycle', 'motorbike', 'cafe racer', 'custom', 'vintage', 'two wheels']
-    },
-    {
-      id: 'bike-2',
-      title: 'Ducati Superbike Track Edition',
-      description: 'Italian superbike parked on asphalt ready for track lap times',
-      alt_description: 'Red Ducati sports motorcycle',
-      urlId: 'photo-1568772585407-9361f9bf3a87',
+      id: 'football-1',
+      title: 'Football Match Under Massive Stadium Lights',
+      description: 'Professional soccer stadium filled with roaring fans under floodlights',
+      alt_description: 'Football stadium match night floodlights',
+      urlId: 'photo-1508098682722-e99c43a406b2',
       width: 4000,
       height: 2667,
-      likes: 3890,
-      color: '#dc2626',
-      photographer: { name: 'Grahame Jenkins', username: 'grahamejenkins' },
-      tags: ['bike', 'bikes', 'ducati', 'motorcycle', 'racing', 'superbike', 'italian', 'fast']
+      likes: 5890,
+      color: '#15803d',
+      photographer: { name: 'Thomas Serer', username: 'thomas_serer' },
+      tags: ['football', 'soccer', 'stadium', 'ball', 'match', 'fifa', 'champions league', 'goal']
     },
     {
-      id: 'bike-3',
-      title: 'Harley-Davidson Heritage Cruiser',
-      description: 'Classic chrome-plated American cruiser motorcycle for open highway touring',
-      alt_description: 'Harley-Davidson cruiser motorcycle outdoors',
-      urlId: 'photo-1558980664-769d59546b3d',
+      id: 'football-2',
+      title: 'Classic Leather Football Resting on Grass',
+      description: 'Classic soccer ball sitting on the pitch center circle line',
+      alt_description: 'Soccer ball on green turf field',
+      urlId: 'photo-1579952363873-27f3bade9f55',
+      width: 3840,
+      height: 2560,
+      likes: 4720,
+      color: '#166534',
+      photographer: { name: 'Connor Coyne', username: 'connorcoyne' },
+      tags: ['football', 'soccer', 'ball', 'pitch', 'grass', 'turf', 'game']
+    },
+    {
+      id: 'football-3',
+      title: 'Striker Shooting Ball Into Goal Net',
+      description: 'Action photograph of soccer ball hitting the back of the white goal net',
+      alt_description: 'Soccer ball hitting net scoring a goal',
+      urlId: 'photo-1551958219-acbc608c6377',
       width: 3900,
       height: 2600,
-      likes: 3450,
-      color: '#0f172a',
-      photographer: { name: 'Harley-Davidson', username: 'harleydavidson' },
-      tags: ['bike', 'bikes', 'harley', 'cruiser', 'motorcycle', 'chopper', 'v-twin', 'highway']
-    },
-    {
-      id: 'bike-4',
-      title: 'Downhill Mountain Bike on Forest Singletrack',
-      description: 'Full-suspension mountain bike carving through mountain forest berms',
-      alt_description: 'Mountain bike rider downhill in forest',
-      urlId: 'photo-1532298229144-0ec0c57515c7',
-      width: 4100,
-      height: 2700,
-      likes: 2980,
-      color: '#15803d',
-      photographer: { name: 'Viktor Kern', username: 'viktorkern' },
-      tags: ['bike', 'bikes', 'bicycle', 'mountain bike', 'mtb', 'downhill', 'cycling', 'trail']
-    },
-    {
-      id: 'bike-5',
-      title: 'Vintage Bicycle in Amsterdam Street',
-      description: 'Classic city commuter bicycle parked against historic canal bridge',
-      alt_description: 'Classic bicycle leaning against canal bridge in Amsterdam',
-      urlId: 'photo-1485965120184-e220f721d03e',
-      width: 3600,
-      height: 2400,
-      likes: 3120,
+      likes: 4210,
       color: '#0284c7',
-      photographer: { name: 'Javier M', username: 'javierm' },
-      tags: ['bike', 'bikes', 'bicycle', 'cycling', 'city', 'urban', 'amsterdam', 'retro']
+      photographer: { name: 'Mitch Rosen', username: 'mitchwork' },
+      tags: ['football', 'soccer', 'goal', 'score', 'net', 'striker', 'shot']
+    }
+  ],
+
+  coffee: [
+    {
+      id: 'coffee-1',
+      title: 'Artisan Latte Coffee with Rosette Foam Art',
+      description: 'Barista crafted hot latte in ceramic cup with delicate heart latte art',
+      alt_description: 'Cup of latte coffee with foam art',
+      urlId: 'photo-1501339847302-ac426a4a7cbb',
+      width: 3900,
+      height: 2600,
+      likes: 4950,
+      color: '#78350f',
+      photographer: { name: 'Demid Deev', username: 'demid' },
+      tags: ['coffee', 'latte', 'cafe', 'barista', 'espresso', 'cappuccino', 'morning']
     },
     {
-      id: 'bike-6',
-      title: 'Dark Custom Bobber Motorcycle',
-      description: 'Minimalist bobber motorcycle with low stance and custom exhaust pipe',
-      alt_description: 'Black custom bobber motorcycle parked in alleyway',
-      urlId: 'photo-1558981806-ec527fa84c39',
+      id: 'coffee-2',
+      title: 'Freshly Roasted Dark Coffee Beans',
+      description: 'Macro detail of roasted arabica coffee beans with rich aroma and oils',
+      alt_description: 'Roasted brown coffee beans scattered',
+      urlId: 'photo-1447933601403-0c6688de566e',
       width: 4000,
       height: 2667,
-      likes: 3740,
-      color: '#18181b',
-      photographer: { name: 'Harley-Davidson', username: 'harleydavidson' },
-      tags: ['bike', 'bikes', 'bobber', 'custom', 'motorcycle', 'chopper', 'black']
+      likes: 5120,
+      color: '#451a03',
+      photographer: { name: 'Nathan Dumlao', username: 'nate_dumlao' },
+      tags: ['coffee', 'beans', 'roast', 'espresso', 'brew', 'cafe']
+    },
+    {
+      id: 'coffee-3',
+      title: 'Morning Espresso by Sunlit Window',
+      description: 'Single origin espresso shot served alongside an open book in morning light',
+      alt_description: 'Cup of coffee on wooden table next to window',
+      urlId: 'photo-1495474472287-4d71bcdd2085',
+      width: 3840,
+      height: 2560,
+      likes: 4320,
+      color: '#d97706',
+      photographer: { name: 'Ali Inay', username: 'inayali' },
+      tags: ['coffee', 'cup', 'espresso', 'morning', 'window', 'warmth', 'relax']
     }
   ],
 
@@ -412,7 +471,7 @@ export const CATEGORIES = {
       likes: 5420,
       color: '#4a5568',
       photographer: { name: 'Benjamin Voros', username: 'vorosbenbi' },
-      tags: ['nature', 'mountains', 'snow', 'sunset', 'landscape', 'alps', 'peaks', 'wilderness']
+      tags: ['nature', 'mountains', 'snow', 'sunset', 'landscape', 'alps', 'peaks']
     },
     {
       id: 'nature-2',
@@ -425,7 +484,7 @@ export const CATEGORIES = {
       likes: 6890,
       color: '#0f766e',
       photographer: { name: 'Bailey Zindel', username: 'baileyzindel' },
-      tags: ['nature', 'yosemite', 'river', 'reflection', 'forest', 'national park', 'trees']
+      tags: ['nature', 'yosemite', 'river', 'reflection', 'forest', 'national park']
     },
     {
       id: 'nature-3',
@@ -438,23 +497,10 @@ export const CATEGORIES = {
       likes: 4880,
       color: '#15803d',
       photographer: { name: 'Sebastian Unrau', username: 'sebastian_unrau' },
-      tags: ['nature', 'forest', 'pine', 'fog', 'mist', 'trees', 'morning', 'moody', 'green']
+      tags: ['nature', 'forest', 'pine', 'fog', 'mist', 'trees', 'morning']
     },
     {
       id: 'nature-4',
-      title: 'Powerful Waterfall Cascade in Lush Jungle',
-      description: 'Vibrant rushing waterfall surrounded by tropical green foliage',
-      alt_description: 'Scenic waterfall in dense tropical nature',
-      urlId: 'photo-1432405972618-c60b0225b8f9',
-      width: 3900,
-      height: 2600,
-      likes: 3750,
-      color: '#065f46',
-      photographer: { name: 'Alex Perez', username: 'a2ephotography' },
-      tags: ['nature', 'waterfall', 'water', 'cascade', 'jungle', 'river', 'rocks']
-    },
-    {
-      id: 'nature-5',
       title: 'Alpine Lake Mirror in Italian Dolomites',
       description: 'Pristine turquoise mountain lake reflecting dramatic jagged peaks',
       alt_description: 'Dolomites mountain lake reflection in Italy',
@@ -465,100 +511,6 @@ export const CATEGORIES = {
       color: '#0e7490',
       photographer: { name: 'Luca Bravo', username: 'lucabravo' },
       tags: ['nature', 'dolomites', 'lake', 'alps', 'italy', 'turquoise', 'hiking']
-    },
-    {
-      id: 'nature-6',
-      title: 'Golden Autumn Sunlight Through Forest Canopy',
-      description: 'Warm rays of morning sun filtering through vibrant golden autumn leaves',
-      alt_description: 'Sunbeams shining through autumn trees',
-      urlId: 'photo-1518495973542-4542c06a5843',
-      width: 3840,
-      height: 2560,
-      likes: 4230,
-      color: '#b45309',
-      photographer: { name: 'Fabian Grohs', username: 'grohsfabian' },
-      tags: ['nature', 'autumn', 'sunlight', 'sunbeams', 'fall', 'golden', 'trees', 'leaves']
-    }
-  ],
-
-  architecture: [
-    {
-      id: 'arch-1',
-      title: 'Modern Curvilinear Architectural Facade',
-      description: 'Abstract white architectural curves creating dynamic fluid shadows',
-      alt_description: 'White curved building architectural photography',
-      urlId: 'photo-1513694203232-719a280e022f',
-      width: 3840,
-      height: 2400,
-      likes: 4180,
-      color: '#e2e8f0',
-      photographer: { name: 'Joel Filipe', username: 'joelfilip' },
-      tags: ['architecture', 'building', 'modern', 'curves', 'white', 'design', 'facade', 'minimal']
-    },
-    {
-      id: 'arch-2',
-      title: 'Glass and Steel Skyscrapers Reaching Skyward',
-      description: 'Low-angle perspective of towering glass corporate high-rises',
-      alt_description: 'Glass skyscrapers reflecting blue sky',
-      urlId: 'photo-1486406146926-c627a92ad1ab',
-      width: 4000,
-      height: 2667,
-      likes: 4950,
-      color: '#0284c7',
-      photographer: { name: 'Sean Pollock', username: 'seanpollock' },
-      tags: ['architecture', 'skyscraper', 'building', 'city', 'glass', 'sky', 'urban', 'towers']
-    },
-    {
-      id: 'arch-3',
-      title: 'Minimalist Interior with Soft Morning Sunlight',
-      description: 'Warm natural light casting clean geometric shadows in contemporary room',
-      alt_description: 'Minimalist interior room with sunlight and shadows',
-      urlId: 'photo-1493809842364-78817add7ffb',
-      width: 3700,
-      height: 2500,
-      likes: 3150,
-      color: '#fef3c7',
-      photographer: { name: 'Jean-Philippe Delberghe', username: 'jpholland' },
-      tags: ['architecture', 'interior', 'minimalist', 'sunlight', 'home', 'room', 'design', 'modern']
-    },
-    {
-      id: 'arch-4',
-      title: 'Architectural Geometric Spiral Staircase',
-      description: 'Hypnotic symmetry looking down modern spiral staircase architecture',
-      alt_description: 'Spiral staircase architectural symmetry',
-      urlId: 'photo-1503387762-592deb58ef4e',
-      width: 4100,
-      height: 2733,
-      likes: 5410,
-      color: '#334155',
-      photographer: { name: 'Daniel von Appen', username: 'danielicious' },
-      tags: ['architecture', 'stairs', 'spiral', 'symmetry', 'geometric', 'perspective']
-    },
-    {
-      id: 'arch-5',
-      title: 'Luxury Villa with Infinity Swimming Pool',
-      description: 'Contemporary residential architecture blending clean lines with tropical waters',
-      alt_description: 'Modern luxury home with swimming pool at twilight',
-      urlId: 'photo-1512917774080-9991f1c4c750',
-      width: 4200,
-      height: 2800,
-      likes: 6120,
-      color: '#0369a1',
-      photographer: { name: 'Rohan Makhecha', username: 'rohanmakhecha' },
-      tags: ['architecture', 'villa', 'pool', 'luxury', 'house', 'modern', 'home', 'estate']
-    },
-    {
-      id: 'arch-6',
-      title: 'Contemporary Open-Concept Creative Office',
-      description: 'Spacious collaborative workspace designed for innovation and teamwork',
-      alt_description: 'Modern open office workspace with glass partitions',
-      urlId: 'photo-1497366216548-37526070297c',
-      width: 3900,
-      height: 2600,
-      likes: 3820,
-      color: '#64748b',
-      photographer: { name: 'Alesia Kazantceva', username: 'akazantceva' },
-      tags: ['architecture', 'office', 'workspace', 'interior', 'contemporary', 'commercial']
     }
   ],
 
@@ -574,7 +526,7 @@ export const CATEGORIES = {
       likes: 6980,
       color: '#ca8a04',
       photographer: { name: 'Alvan Nee', username: 'alvannee' },
-      tags: ['dog', 'dogs', 'golden retriever', 'puppy', 'pet', 'cute', 'animal', 'happy', 'grass']
+      tags: ['dog', 'dogs', 'golden retriever', 'puppy', 'pet', 'cute', 'animal']
     },
     {
       id: 'dog-2',
@@ -587,7 +539,7 @@ export const CATEGORIES = {
       likes: 7420,
       color: '#78350f',
       photographer: { name: 'Marek Szturc', username: 'marekszturc' },
-      tags: ['dog', 'dogs', 'puppy', 'puppies', 'cute', 'adorable', 'pet', 'eyes']
+      tags: ['dog', 'dogs', 'puppy', 'puppies', 'cute', 'adorable', 'pet']
     },
     {
       id: 'dog-3',
@@ -600,46 +552,7 @@ export const CATEGORIES = {
       likes: 5890,
       color: '#0284c7',
       photographer: { name: 'Valentin Petkov', username: 'valentinpetkov' },
-      tags: ['dog', 'dogs', 'husky', 'siberian husky', 'blue eyes', 'winter', 'majestic']
-    },
-    {
-      id: 'dog-4',
-      title: 'Playful French Bulldog Head Tilt',
-      description: 'Funny Frenchie puppy cocking head in curiosity in soft indoor lighting',
-      alt_description: 'French bulldog tilting head in curiosity',
-      urlId: 'photo-1517849845537-4d257902454a',
-      width: 3900,
-      height: 2600,
-      likes: 6150,
-      color: '#475569',
-      photographer: { name: 'Karsten Winegeart', username: 'karsten116' },
-      tags: ['dog', 'dogs', 'french bulldog', 'frenchie', 'bulldog', 'puppy', 'funny']
-    },
-    {
-      id: 'dog-5',
-      title: 'Happy Pembroke Welsh Corgi Running',
-      description: 'Energetic corgi dog bounding through green grass with ears up',
-      alt_description: 'Pembroke Welsh Corgi running outdoors',
-      urlId: 'photo-1561037404-61cd46aa615b',
-      width: 4000,
-      height: 2667,
-      likes: 5310,
-      color: '#ea580c',
-      photographer: { name: 'Alvan Nee', username: 'alvannee' },
-      tags: ['dog', 'dogs', 'corgi', 'running', 'active', 'happy', 'fluffy']
-    },
-    {
-      id: 'dog-6',
-      title: 'Adorable Pug Resting Chins on Paws',
-      description: 'Charming pug dog taking a cozy afternoon nap on soft blanket',
-      alt_description: 'Pug dog resting head on paws',
-      urlId: 'photo-1518717758536-85ae29035b6d',
-      width: 3800,
-      height: 2533,
-      likes: 4780,
-      color: '#d97706',
-      photographer: { name: 'Matthew Henry', username: 'matthewhenry' },
-      tags: ['dog', 'dogs', 'pug', 'sleeping', 'lazy', 'pet', 'wrinkles']
+      tags: ['dog', 'dogs', 'husky', 'siberian husky', 'blue eyes', 'pet']
     }
   ],
 
@@ -655,7 +568,7 @@ export const CATEGORIES = {
       likes: 7890,
       color: '#15803d',
       photographer: { name: 'Manja Vitolic', username: 'madisons' },
-      tags: ['cat', 'cats', 'kitten', 'tabby', 'eyes', 'feline', 'pet', 'cute', 'whiskers']
+      tags: ['cat', 'cats', 'kitten', 'tabby', 'eyes', 'feline', 'pet', 'cute']
     },
     {
       id: 'cat-2',
@@ -668,7 +581,7 @@ export const CATEGORIES = {
       likes: 6450,
       color: '#ea580c',
       photographer: { name: 'Amber Kipp', username: 'amberkipp' },
-      tags: ['cat', 'cats', 'ginger', 'orange cat', 'sunlight', 'sleeping', 'pet']
+      tags: ['cat', 'cats', 'ginger', 'orange cat', 'sunlight', 'pet']
     },
     {
       id: 'cat-3',
@@ -681,135 +594,44 @@ export const CATEGORIES = {
       likes: 8920,
       color: '#f8fafc',
       photographer: { name: 'Kari Shea', username: 'karishea' },
-      tags: ['cat', 'cats', 'kitten', 'baby cat', 'fluffy', 'cute', 'tiny', 'adorable']
-    },
-    {
-      id: 'cat-4',
-      title: 'Cool Cat Wearing Sunglasses',
-      description: 'Playful portrait of domestic cat rocking retro mirrored sunglasses',
-      alt_description: 'Cat wearing stylish miniature sunglasses',
-      urlId: 'photo-1533738363-b7f9aef128ce',
-      width: 4100,
-      height: 2733,
-      likes: 8120,
-      color: '#e11d48',
-      photographer: { name: 'Kari Shea', username: 'karishea' },
-      tags: ['cat', 'cats', 'sunglasses', 'cool', 'funny', 'meme', 'pet']
-    },
-    {
-      id: 'cat-5',
-      title: 'Sleek Black Cat with Golden Eyes',
-      description: 'Mysterious black panther-like domestic cat looking poised and regal',
-      alt_description: 'Black cat staring with yellow eyes',
-      urlId: 'photo-1561948955-570b270e7c36',
-      width: 4000,
-      height: 2667,
-      likes: 5670,
-      color: '#0f172a',
-      photographer: { name: 'Jaime Spaniol', username: 'jaimespaniol' },
-      tags: ['cat', 'cats', 'black cat', 'mystery', 'golden eyes', 'sleek', 'feline']
-    },
-    {
-      id: 'cat-6',
-      title: 'Little Kitten Stretching Paws Upwards',
-      description: 'Sweet white kitten playfully reaching paws into the air while lying on back',
-      alt_description: 'Kitten lying on back playing with paws',
-      urlId: 'photo-1574158622682-e40e69881006',
-      width: 3800,
-      height: 2533,
-      likes: 6780,
-      color: '#f1f5f9',
-      photographer: { name: 'Yerlin Matu', username: 'yerlinmatu' },
-      tags: ['cat', 'cats', 'kitten', 'playful', 'stretching', 'paws', 'cute']
+      tags: ['cat', 'cats', 'kitten', 'fluffy', 'cute', 'tiny', 'pet']
     }
   ],
 
-  food: [
+  shoes: [
     {
-      id: 'food-1',
-      title: 'Gourmet Culinary Dish with Fresh Herbs',
-      description: 'Artisan restaurant plating with vibrant reduction sauces and microgreens',
-      alt_description: 'Gourmet fine dining dish on dark ceramic plate',
-      urlId: 'photo-1504674900247-0877df9cc836',
+      id: 'shoe-1',
+      title: 'Nike Air Sport Running Sneakers',
+      description: 'Modern athletic sneakers with responsive foam sole on neutral background',
+      alt_description: 'Nike sneakers pair on grey floor',
+      urlId: 'photo-1542291026-7eec264c27ff',
       width: 4000,
       height: 2667,
-      likes: 5980,
-      color: '#0f172a',
-      photographer: { name: 'Lily Banse', username: 'lvnatikk' },
-      tags: ['food', 'culinary', 'gourmet', 'restaurant', 'dinner', 'chef', 'meal', 'delicious']
+      likes: 7320,
+      color: '#dc2626',
+      photographer: { name: 'Hermes Rivera', username: 'hermesrivera' },
+      tags: ['shoes', 'sneakers', 'nike', 'running', 'sport', 'kicks', 'red', 'footwear']
     },
     {
-      id: 'food-2',
-      title: 'Juicy Gourmet Smash Burger with Melting Cheese',
-      description: 'Double beef smash burger with cheddar, caramelized onions, and brioche bun',
-      alt_description: 'Double cheese burger on wooden board',
-      urlId: 'photo-1568901346375-23c9450c58cd',
+      id: 'shoe-2',
+      title: 'Classic White Canvas Sneakers in Sunshine',
+      description: 'Clean white low-top canvas sneakers on urban concrete',
+      alt_description: 'White canvas sneakers on pavement',
+      urlId: 'photo-1525966222134-fcfa99b8ae77',
       width: 3840,
       height: 2560,
-      likes: 7210,
-      color: '#b45309',
-      photographer: { name: 'Amirali Mirhashemian', username: 'amir_v_ali' },
-      tags: ['food', 'burger', 'cheeseburger', 'beef', 'fast food', 'tasty', 'snack']
-    },
-    {
-      id: 'food-3',
-      title: 'Authentic Italian Wood-Fired Pepperoni Pizza',
-      description: 'Crisp Neapolitan crust topped with tomato sauce, mozzarella, and spicy pepperoni',
-      alt_description: 'Hot pepperoni pizza with melted cheese',
-      urlId: 'photo-1513104890138-7c749659a591',
-      width: 4100,
-      height: 2733,
-      likes: 6840,
-      color: '#dc2626',
-      photographer: { name: 'Ivan Torres', username: 'ivantorres' },
-      tags: ['food', 'pizza', 'pepperoni', 'italian', 'cheese', 'dinner', 'crust']
-    },
-    {
-      id: 'food-4',
-      title: 'Artisan Latte Coffee with Rosette Foam Art',
-      description: 'Barista crafted hot latte in ceramic cup with delicate heart latte art',
-      alt_description: 'Cup of latte coffee with foam art',
-      urlId: 'photo-1501339847302-ac426a4a7cbb',
-      width: 3900,
-      height: 2600,
-      likes: 4950,
-      color: '#78350f',
-      photographer: { name: 'Demid Deev', username: 'demid' },
-      tags: ['food', 'coffee', 'latte', 'cafe', 'barista', 'espresso', 'cappuccino', 'morning']
-    },
-    {
-      id: 'food-5',
-      title: 'Authentic Japanese Tonkotsu Ramen Bowl',
-      description: 'Steaming rich pork broth with chashu pork, soft-boiled egg, and ramen noodles',
-      alt_description: 'Japanese ramen bowl with egg and pork',
-      urlId: 'photo-1555396273-367ea4eb4db5',
-      width: 4000,
-      height: 2667,
-      likes: 5430,
-      color: '#ca8a04',
-      photographer: { name: 'Mae Mu', username: 'itsmaemu' },
-      tags: ['food', 'ramen', 'japanese', 'noodles', 'soup', 'asian', 'lunch']
-    },
-    {
-      id: 'food-6',
-      title: 'Golden Fluffy Pancakes with Maple Syrup and Blueberries',
-      description: 'Stack of morning pancakes dripping with pure maple syrup and fresh fruit',
-      alt_description: 'Stack of fluffy pancakes with syrup and berries',
-      urlId: 'photo-1567620905732-2d1ec7ab7445',
-      width: 3800,
-      height: 2533,
-      likes: 6120,
-      color: '#d97706',
-      photographer: { name: 'Chad Montano', username: 'briewilly' },
-      tags: ['food', 'pancakes', 'breakfast', 'syrup', 'sweet', 'blueberries', 'dessert']
+      likes: 4980,
+      color: '#f8fafc',
+      photographer: { name: 'Paul Gaudriault', username: 'pauloco' },
+      tags: ['shoes', 'sneakers', 'white', 'vans', 'canvas', 'footwear', 'fashion']
     }
   ],
 
   technology: [
     {
       id: 'tech-1',
-      title: 'Software Developer Coding on Modern Laptop',
-      description: 'Programmer reviewing code on screen beside hot coffee in cozy workspace',
+      title: 'Developer Coding on Modern Laptop with Coffee',
+      description: 'Programmer reviewing code on screen beside hot coffee in workspace',
       alt_description: 'Laptop with code on screen and coffee cup',
       urlId: 'photo-1498050108023-c5249f4df085',
       width: 4000,
@@ -817,7 +639,7 @@ export const CATEGORIES = {
       likes: 6420,
       color: '#1e293b',
       photographer: { name: 'Christopher Gower', username: 'cgower' },
-      tags: ['technology', 'tech', 'coding', 'programming', 'code', 'developer', 'software', 'laptop']
+      tags: ['technology', 'coding', 'programming', 'developer', 'code', 'laptop', 'software']
     },
     {
       id: 'tech-2',
@@ -830,59 +652,7 @@ export const CATEGORIES = {
       likes: 5890,
       color: '#0f172a',
       photographer: { name: 'Fotis Fotopoulos', username: 'ffstop' },
-      tags: ['technology', 'code', 'javascript', 'html', 'python', 'developer', 'screen']
-    },
-    {
-      id: 'tech-3',
-      title: 'Futuristic Microprocessor Chip on Motherboard',
-      description: 'Macro view of silicon computer CPU chip glowing with circuitry tracks',
-      alt_description: 'Computer motherboard and silicon chip processor',
-      urlId: 'photo-1518770660439-4636190af475',
-      width: 4200,
-      height: 2800,
-      likes: 7120,
-      color: '#0284c7',
-      photographer: { name: 'Alexandre Debiève', username: 'alexandre_d' },
-      tags: ['technology', 'chip', 'cpu', 'hardware', 'motherboard', 'ai', 'computer', 'silicon']
-    },
-    {
-      id: 'tech-4',
-      title: 'Minimalist Dual Monitor Workspace Setup',
-      description: 'Sleek workspace with ergonomic mechanical keyboard and ambient lighting',
-      alt_description: 'Modern desk setup with monitors and mechanical keyboard',
-      urlId: 'photo-1517694712202-14dd9538aa97',
-      width: 3840,
-      height: 2560,
-      likes: 4780,
-      color: '#334155',
-      photographer: { name: 'Alexandru Acea', username: 'alexacea' },
-      tags: ['technology', 'setup', 'desk', 'workspace', 'monitors', 'office', 'clean']
-    },
-    {
-      id: 'tech-5',
-      title: 'Cybersecurity Matrix Data Stream',
-      description: 'Digital numbers and encryption code streaming across dark screen',
-      alt_description: 'Matrix code and digital data stream',
-      urlId: 'photo-1526374965328-7f61d4dc18c5',
-      width: 4000,
-      height: 2667,
-      likes: 6150,
-      color: '#16a34a',
-      photographer: { name: 'Markus Spiske', username: 'markusspiske' },
-      tags: ['technology', 'cyber', 'security', 'matrix', 'green', 'data', 'hacker', 'crypto']
-    },
-    {
-      id: 'tech-6',
-      title: 'Tech Team Collaborating on Digital Product UI',
-      description: 'Designers and engineers brainstorming app interface concepts in modern agency',
-      alt_description: 'Team working together on laptops in meeting',
-      urlId: 'photo-1519389950473-47ba0277781c',
-      width: 3900,
-      height: 2600,
-      likes: 3890,
-      color: '#475569',
-      photographer: { name: 'Annie Spratt', username: 'anniespratt' },
-      tags: ['technology', 'team', 'collaboration', 'startup', 'meeting', 'design', 'people']
+      tags: ['technology', 'code', 'javascript', 'python', 'developer', 'programming']
     }
   ],
 
@@ -890,7 +660,7 @@ export const CATEGORIES = {
     {
       id: 'space-1',
       title: 'Cosmic Night Sky with Andromeda Galaxy',
-      description: 'Deep space astrophotography revealing stars, galactic dust, and distant nebulas',
+      description: 'Deep space astrophotography revealing stars and nebulas',
       alt_description: 'Night sky filled with millions of stars and galactic dust',
       urlId: 'photo-1506703719100-a0f3a48c0f86',
       width: 4000,
@@ -898,173 +668,50 @@ export const CATEGORIES = {
       likes: 7890,
       color: '#0f172a',
       photographer: { name: 'Graham Holtshausen', username: 'graham_h' },
-      tags: ['space', 'stars', 'galaxy', 'milky way', 'cosmos', 'astronomy', 'night', 'universe']
+      tags: ['space', 'stars', 'galaxy', 'astronomy', 'cosmos', 'universe', 'night']
     },
     {
       id: 'space-2',
-      title: 'Planet Earth Glowing Atmosphere from Space Orbit',
-      description: 'Breathtaking orbital view of Earth continents surrounded by blue atmosphere',
-      alt_description: 'Planet Earth seen from outer space with glowing atmosphere',
+      title: 'Planet Earth Glowing Atmosphere from Orbit',
+      description: 'Orbital view of Earth continents surrounded by blue atmosphere',
+      alt_description: 'Planet Earth seen from outer space',
       urlId: 'photo-1451187580459-43490279c0fa',
       width: 4200,
       height: 2800,
       likes: 9120,
       color: '#0284c7',
       photographer: { name: 'NASA', username: 'nasa' },
-      tags: ['space', 'earth', 'planet', 'orbit', 'nasa', 'satellite', 'globe', 'atmosphere']
-    },
-    {
-      id: 'space-3',
-      title: 'Green Aurora Borealis Dancing over Frozen Lake',
-      description: 'Vibrant Northern Lights undulating in the Arctic sky reflected in tranquil waters',
-      alt_description: 'Northern lights aurora borealis over snowy landscape',
-      urlId: 'photo-1447433589675-4aaa569f3e05',
-      width: 3840,
-      height: 2560,
-      likes: 6740,
-      color: '#15803d',
-      photographer: { name: 'Vincent Guth', username: 'vincentguth' },
-      tags: ['space', 'aurora', 'northern lights', 'green', 'night', 'arctic', 'sky']
-    },
-    {
-      id: 'space-4',
-      title: 'Astronaut on Spacewalk in Open Orbit',
-      description: 'Extravehicular astronaut floating in microgravity above planet surface',
-      alt_description: 'Astronaut in spacesuit floating in space',
-      urlId: 'photo-1518709268805-4e9042af9f23',
-      width: 4000,
-      height: 2667,
-      likes: 8250,
-      color: '#0f172a',
-      photographer: { name: 'NASA', username: 'nasa' },
-      tags: ['space', 'astronaut', 'spacewalk', 'spacesuit', 'iss', 'nasa', 'orbit']
-    },
-    {
-      id: 'space-5',
-      title: 'Luminous Full Moon in Deep Velvet Sky',
-      description: 'Detailed lunar craters and mare captured with high magnification telescope',
-      alt_description: 'Detailed full moon in dark night sky',
-      urlId: 'photo-1532693322450-2cb5c511067d',
-      width: 3900,
-      height: 2600,
-      likes: 6180,
-      color: '#475569',
-      photographer: { name: 'Mike Petrucci', username: 'mikepetrucci' },
-      tags: ['space', 'moon', 'lunar', 'full moon', 'craters', 'telescope', 'night']
-    },
-    {
-      id: 'space-6',
-      title: 'Rocket Launch Piercing Low Clouds at Dawn',
-      description: 'Orbital booster climbing on brilliant column of flame into the stratosphere',
-      alt_description: 'Space rocket launching leaving massive smoke plume',
-      urlId: 'photo-1541185933-ef5d8ed016c2',
-      width: 4100,
-      height: 2733,
-      likes: 7450,
-      color: '#ea580c',
-      photographer: { name: 'SpaceX', username: 'spacex' },
-      tags: ['space', 'rocket', 'launch', 'spacex', 'smoke', 'fire', 'mission', 'sky']
-    }
-  ],
-
-  travel: [
-    {
-      id: 'travel-1',
-      title: 'Eiffel Tower at Golden Twilight in Paris',
-      description: 'Iconic Parisian monument framed by classic Haussmannian avenues at sunset',
-      alt_description: 'Eiffel Tower in Paris at twilight sunset',
-      urlId: 'photo-1502602898657-3e91760cbb34',
-      width: 4000,
-      height: 2667,
-      likes: 8450,
-      color: '#e11d48',
-      photographer: { name: 'Chris Karidis', username: 'chriskaridis' },
-      tags: ['travel', 'paris', 'france', 'eiffel tower', 'europe', 'sunset', 'monument', 'vacation']
-    },
-    {
-      id: 'travel-2',
-      title: 'Tokyo Street Bustling with Rainy Neon Reflections',
-      description: 'Shinjuku illuminated signs mirrored on wet city street under umbrellas',
-      alt_description: 'Tokyo street illuminated with neon signs during rainy night',
-      urlId: 'photo-1509198397868-475647b2a1e5',
-      width: 4200,
-      height: 2800,
-      likes: 7650,
-      color: '#701a75',
-      photographer: { name: 'Aleksandar Pasaric', username: 'apasaric' },
-      tags: ['travel', 'tokyo', 'japan', 'neon', 'city', 'night', 'rain', 'asia']
-    },
-    {
-      id: 'travel-3',
-      title: 'Times Square Bustling with Light and Energy',
-      description: 'Vibrant billboard glow and yellow taxicabs in the heart of Manhattan',
-      alt_description: 'Times Square New York City at night with glowing billboards',
-      urlId: 'photo-1496442226666-8d4d0e62e6e9',
-      width: 3840,
-      height: 2560,
-      likes: 6210,
-      color: '#2563eb',
-      photographer: { name: 'Luca Bravo', username: 'lucabravo' },
-      tags: ['travel', 'new york', 'nyc', 'manhattan', 'times square', 'usa', 'city']
-    },
-    {
-      id: 'travel-4',
-      title: 'Venetian Gondola on Historic Canal in Venice',
-      description: 'Traditional black gondola gliding past weathered Venetian palazzo walls',
-      alt_description: 'Gondola on canal in Venice Italy',
-      urlId: 'photo-1534447677768-be436bb09401',
-      width: 4100,
-      height: 2733,
-      likes: 5890,
-      color: '#0e7490',
-      photographer: { name: 'Henrique Ferreira', username: 'henriqueferreira' },
-      tags: ['travel', 'venice', 'italy', 'gondola', 'canal', 'historic', 'water']
-    },
-    {
-      id: 'travel-5',
-      title: 'Santorini Cliffside Whitewashed Houses',
-      description: 'Iconic blue-domed churches and white buildings overlooking Aegean caldera',
-      alt_description: 'Santorini white village with blue domes overlooking sea',
-      urlId: 'photo-1520250497591-112f2f40a3f4',
-      width: 4000,
-      height: 2667,
-      likes: 7120,
-      color: '#0284c7',
-      photographer: { name: 'Constantin Popp', username: 'constantinpopp' },
-      tags: ['travel', 'santorini', 'greece', 'aegean', 'white', 'island', 'summer', 'sea']
-    },
-    {
-      id: 'travel-6',
-      title: 'London Tower Bridge over the River Thames',
-      description: 'Historic Victorian Gothic suspension bridge spanning London waterfront',
-      alt_description: 'Tower Bridge in London England',
-      urlId: 'photo-1513635269975-59663e0ac1ad',
-      width: 3900,
-      height: 2600,
-      likes: 5430,
-      color: '#475569',
-      photographer: { name: 'Luke Stackpoole', username: 'withluke' },
-      tags: ['travel', 'london', 'uk', 'tower bridge', 'england', 'river', 'bridge']
+      tags: ['space', 'earth', 'planet', 'nasa', 'orbit', 'globe']
     }
   ]
 };
 
-/**
- * Searches curated photo collections by query tokens.
- * If query directly matches a known category (e.g. 'cars', 'car', 'vehicle'), prioritizes that category.
- * If query matches individual photo tags across collections, returns matching photos.
- * If no direct matches, returns a diversified fallback matching the query theme.
- */
+// Search our local photo database by query keywords
 export function queryCuratedDatabase(searchQuery, page = 1, perPage = 12) {
-  const normalizedQuery = (searchQuery || '').trim().toLowerCase();
-  if (!normalizedQuery) {
-    return { results: [], total: 0, totalPages: 0 };
+  const query = (searchQuery || '').trim().toLowerCase();
+  if (!query) {
+    return { rawPhotos: [], total: 0, totalPages: 0 };
   }
 
-  const tokens = normalizedQuery.split(/\s+/).filter(Boolean);
+  const tokens = query.split(/\s+/).filter(Boolean);
 
-  // 1. Direct Category Mapping
-  const categoryAliases = {
+  // Exact category / brand direct aliases
+  const categoryMap = {
+    // Cricket
+    cricket: 'cricket',
+    ipl: 'cricket',
+    batsman: 'cricket',
+    bowler: 'cricket',
+    wicket: 'cricket',
+
+    // BMW
+    bmw: 'bmw',
+    'bmw m4': 'bmw',
+    'bmw m3': 'bmw',
+    'bmw m8': 'bmw',
+    bimmer: 'bmw',
+
+    // Cars & Supercars
     car: 'cars',
     cars: 'cars',
     auto: 'cars',
@@ -1075,162 +722,113 @@ export function queryCuratedDatabase(searchQuery, page = 1, perPage = 12) {
     supercars: 'cars',
     ferrari: 'cars',
     porsche: 'cars',
-    bmw: 'cars',
-    mustang: 'cars',
     lamborghini: 'cars',
-    mercedes: 'cars',
+    mustang: 'cars',
+    corvette: 'cars',
     audi: 'cars',
-    truck: 'cars',
-    motor: 'cars',
-    racing: 'cars',
+    mercedes: 'cars',
 
-    bike: 'bikes',
-    bikes: 'bikes',
-    motorcycle: 'bikes',
-    motorcycles: 'bikes',
-    motorbike: 'bikes',
-    bicycle: 'bikes',
-    bicycles: 'bikes',
-    cycling: 'bikes',
+    // Football
+    football: 'football',
+    soccer: 'football',
+    fifa: 'football',
 
+    // Coffee
+    coffee: 'coffee',
+    latte: 'coffee',
+    espresso: 'coffee',
+    cafe: 'coffee',
+
+    // Nature
     nature: 'nature',
     mountain: 'nature',
     mountains: 'nature',
     forest: 'nature',
-    forests: 'nature',
-    waterfall: 'nature',
     landscape: 'nature',
-    autumn: 'nature',
 
-    architecture: 'architecture',
-    building: 'architecture',
-    buildings: 'architecture',
-    skyscraper: 'architecture',
-    interior: 'architecture',
-    house: 'architecture',
-
+    // Dogs
     dog: 'dogs',
     dogs: 'dogs',
     puppy: 'dogs',
     puppies: 'dogs',
     husky: 'dogs',
-    golden: 'dogs',
-    corgi: 'dogs',
+    retriever: 'dogs',
 
+    // Cats
     cat: 'cats',
     cats: 'cats',
     kitten: 'cats',
     kittens: 'cats',
-    feline: 'cats',
 
-    food: 'food',
-    burger: 'food',
-    burgers: 'food',
-    pizza: 'food',
-    coffee: 'food',
-    ramen: 'food',
-    pancake: 'food',
-    meal: 'food',
-    restaurant: 'food',
+    // Shoes
+    shoes: 'shoes',
+    shoe: 'shoes',
+    sneakers: 'shoes',
+    sneaker: 'shoes',
 
+    // Tech
     tech: 'technology',
     technology: 'technology',
     coding: 'technology',
     code: 'technology',
-    programming: 'technology',
-    computer: 'technology',
-    laptop: 'technology',
-    software: 'technology',
+    developer: 'technology',
 
+    // Space
     space: 'space',
     galaxy: 'space',
-    stars: 'space',
-    star: 'space',
-    astronomy: 'space',
-    cosmos: 'space',
-    moon: 'space',
-    earth: 'space',
-    aurora: 'space',
-    rocket: 'space',
-
-    travel: 'travel',
-    paris: 'travel',
-    tokyo: 'travel',
-    london: 'travel',
-    city: 'travel',
-    vacation: 'travel',
-    monument: 'travel'
+    stars: 'space'
   };
 
-  let matchedCategory = null;
+  // Check if any token matches our direct categories
+  let targetCategory = null;
   for (const token of tokens) {
-    if (categoryAliases[token]) {
-      matchedCategory = categoryAliases[token];
+    if (categoryMap[token]) {
+      targetCategory = categoryMap[token];
       break;
     }
   }
 
-  let matchedPhotos = [];
+  let matched = [];
 
-  if (matchedCategory && CATEGORIES[matchedCategory]) {
-    // If the category matches, take all items from that category
-    matchedPhotos = [...CATEGORIES[matchedCategory]];
+  if (targetCategory && MOCK_DATABASE[targetCategory]) {
+    matched = [...MOCK_DATABASE[targetCategory]];
   } else {
-    // 2. Tag and Keyword Scoring across all categories
-    const allPhotos = Object.values(CATEGORIES).flat();
-    const scoredPhotos = allPhotos.map((photo) => {
+    // Search across all items by matching tags or words in title/description
+    const all = Object.values(MOCK_DATABASE).flat();
+    const scored = all.map((photo) => {
       let score = 0;
-      const titleLower = photo.title.toLowerCase();
-      const descLower = photo.description.toLowerCase();
+      const title = photo.title.toLowerCase();
+      const desc = photo.description.toLowerCase();
       const tags = photo.tags || [];
 
       for (const token of tokens) {
         if (tags.includes(token)) score += 5;
-        if (titleLower.includes(token)) score += 4;
-        if (descLower.includes(token)) score += 2;
-        // Check partial match
+        if (title.includes(token)) score += 3;
+        if (desc.includes(token)) score += 2;
         if (tags.some((t) => t.includes(token) || token.includes(t))) score += 2;
       }
       return { photo, score };
     });
 
-    const filtered = scoredPhotos.filter((item) => item.score > 0);
-    if (filtered.length > 0) {
-      filtered.sort((a, b) => b.score - a.score);
-      matchedPhotos = filtered.map((item) => item.photo);
+    const results = scored.filter((s) => s.score > 0).sort((a, b) => b.score - a.score);
+    if (results.length > 0) {
+      matched = results.map((r) => r.photo);
     } else {
-      // 3. Fallback: Adaptive thematic photos customized to the query
-      matchedPhotos = generateAdaptivePhotos(searchQuery);
+      // Fallback: pick diverse photos with stable deterministic seed
+      const allPhotos = Object.values(MOCK_DATABASE).flat();
+      const seed = query.split('').reduce((sum, ch) => sum + ch.charCodeAt(0), 0);
+      matched = [...allPhotos].sort((a, b) => {
+        const diffA = (a.id.charCodeAt(0) + seed) % 11;
+        const diffB = (b.id.charCodeAt(0) + seed) % 11;
+        return diffA - diffB;
+      }).slice(0, 8);
     }
   }
 
-  // Calculate pagination slice
-  const total = matchedPhotos.length;
-  const totalPages = Math.ceil(total / perPage);
-  const startIndex = (page - 1) * perPage;
-  const pageItems = matchedPhotos.slice(startIndex, startIndex + perPage);
+  const total = matched.length;
+  const totalPages = Math.ceil(total / perPage) || 1;
+  const start = (page - 1) * perPage;
+  const rawPhotos = matched.slice(start, start + perPage);
 
-  return {
-    rawPhotos: pageItems,
-    total,
-    totalPages
-  };
-}
-
-/**
- * Generates an adaptive curated set of Unsplash photos tailored to the query
- */
-function generateAdaptivePhotos(query) {
-  const allBasePhotos = Object.values(CATEGORIES).flat();
-  // Deterministic seed based on query characters
-  const seed = query.split('').reduce((acc, char) => acc + char.charCodeAt(0), 0);
-
-  // Return a randomized but deterministic subset of 12 beautiful photos
-  const shuffled = [...allBasePhotos].sort((a, b) => {
-    const valA = (a.id.charCodeAt(a.id.length - 1) + seed) % 17;
-    const valB = (b.id.charCodeAt(b.id.length - 1) + seed) % 17;
-    return valA - valB;
-  });
-
-  return shuffled.slice(0, 12);
+  return { rawPhotos, total, totalPages };
 }

@@ -15,9 +15,7 @@
   padding: 0 1.5rem 3rem;
 }
 
-/* =========================================
-   1. HEADER
-   ========================================= */
+/* Header */
 .site-header {
   position: sticky;
   top: 0;
@@ -155,9 +153,7 @@
   box-shadow: 0 0 0 2px rgba(16, 185, 129, 0.2);
 }
 
-/* =========================================
-   2. SEARCH SECTION
-   ========================================= */
+/* Search Section */
 .search-section {
   padding: 3rem 0 2.5rem;
   text-align: center;
@@ -347,9 +343,7 @@
   box-shadow: 0 2px 8px var(--color-accent-glow);
 }
 
-/* =========================================
-   3. GALLERY HEADER & RESULTS SECTION
-   ========================================= */
+/* Results Header */
 .results-section {
   width: 100%;
 }
@@ -387,9 +381,7 @@
   font-weight: 500;
 }
 
-/* =========================================
-   4. IMAGE GRID & IMAGE CARDS
-   ========================================= */
+/* Grid & Cards */
 .image-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -554,9 +546,7 @@
   color: rgba(255, 255, 255, 0.75);
 }
 
-/* =========================================
-   5. SKELETON LOADER
-   ========================================= */
+/* Skeleton Loader */
 .skeleton-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -586,9 +576,7 @@
   }
 }
 
-/* =========================================
-   6. EMPTY & ERROR STATES
-   ========================================= */
+/* Empty & Error States */
 .state-container {
   display: flex;
   flex-direction: column;
@@ -679,9 +667,7 @@
   color: var(--color-primary);
 }
 
-/* =========================================
-   7. PAGINATION
-   ========================================= */
+/* Pagination */
 .pagination-container {
   display: flex;
   align-items: center;
@@ -735,9 +721,7 @@
   font-weight: 800;
 }
 
-/* =========================================
-   8. IMAGE PREVIEW MODAL
-   ========================================= */
+/* Image Preview Modal */
 .modal-backdrop {
   position: fixed;
   inset: 0;
@@ -934,9 +918,7 @@
   background: var(--color-primary-hover);
 }
 
-/* =========================================
-   9. SITE FOOTER
-   ========================================= */
+/* Footer */
 .site-footer {
   margin-top: auto;
   border-top: 1px solid var(--color-border);
@@ -965,9 +947,7 @@
   text-decoration: underline;
 }
 
-/* =========================================
-   10. RESPONSIVE BREAKPOINTS (PRD Section 5.3)
-   ========================================= */
+/* Responsive Media Queries */
 /* Tablet (max-width: 1024px) -> 2 or 3 columns */
 @media (max-width: 1024px) {
   .image-grid,

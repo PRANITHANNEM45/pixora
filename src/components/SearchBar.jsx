@@ -2,29 +2,29 @@ import React, { useState, useEffect } from 'react';
 import { Search, X, Sparkles } from 'lucide-react';
 
 const SUGGESTED_KEYWORDS = [
-  'Nature',
-  'Architecture',
-  'Travel',
+  'Cricket',
+  'BMW',
   'Cars',
-  'Minimalist',
-  'Technology',
-  'Portraits',
-  'Wallpapers'
+  'Nature',
+  'Dogs',
+  'Coffee',
+  'Football',
+  'Technology'
 ];
 
 export default function SearchBar({ currentQuery, onSearch, isLoading }) {
   const [inputValue, setInputValue] = useState(currentQuery || '');
 
-  // Keep local input in sync when query changes externally (e.g., clicking chips or reset)
+  // Keep search input in sync with current query
   useEffect(() => {
     setInputValue(currentQuery || '');
   }, [currentQuery]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const trimmed = inputValue.trim();
-    if (trimmed) {
-      onSearch(trimmed);
+    const clean = inputValue.trim();
+    if (clean) {
+      onSearch(clean);
     }
   };
 
@@ -42,13 +42,13 @@ export default function SearchBar({ currentQuery, onSearch, isLoading }) {
       <div className="search-hero">
         <div className="hero-pill">
           <Sparkles size={14} className="hero-pill-icon" />
-          <span>Curated Photography Engine</span>
+          <span>Unsplash Photo Search</span>
         </div>
         <h1 id="search-heading" className="search-title">
-          Discover Stunning High-Resolution Imagery
+          Search High-Resolution Photos
         </h1>
         <p className="search-description">
-          Explore millions of curated, free-to-use photographs powered directly by the Unsplash API.
+          Find photos by keyword, brand, or topic — nature, cricket, cars, bmw, animals, and more.
         </p>
       </div>
 
@@ -58,7 +58,7 @@ export default function SearchBar({ currentQuery, onSearch, isLoading }) {
           <input
             type="text"
             className="search-input"
-            placeholder="Search photos, e.g., 'nature', 'architecture', 'cars'..."
+            placeholder="Search photos, e.g. 'cricket', 'bmw', 'cars', 'nature'..."
             value={inputValue}
             onChange={(e) => setInputValue(e.target.value)}
             aria-label="Search keywords"
@@ -88,7 +88,7 @@ export default function SearchBar({ currentQuery, onSearch, isLoading }) {
       </form>
 
       <div className="suggested-keywords" aria-label="Suggested search keywords">
-        <span className="suggested-label">Trending Topics:</span>
+        <span className="suggested-label">Trending:</span>
         <div className="keywords-chips-list">
           {SUGGESTED_KEYWORDS.map((keyword) => {
             const isActive = currentQuery?.toLowerCase() === keyword.toLowerCase();

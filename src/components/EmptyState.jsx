@@ -1,7 +1,7 @@
 import React from 'react';
 import { SearchX } from 'lucide-react';
 
-const SUGGESTIONS = ['Nature', 'Architecture', 'Ocean', 'Forest', 'Minimalist'];
+const SUGGESTIONS = ['Cricket', 'BMW', 'Cars', 'Nature', 'Dogs', 'Coffee'];
 
 export default function EmptyState({ query, onSelectSuggestion }) {
   return (
@@ -11,7 +11,7 @@ export default function EmptyState({ query, onSelectSuggestion }) {
       </div>
       <h3 className="state-title">No photos found for "{query}"</h3>
       <p className="state-message">
-        We couldn't find any photographs matching your query. Try checking for spelling errors, using broader keywords, or explore one of the trending categories below.
+        We couldn't find any photos matching your search. Try checking your spelling or explore one of these popular topics:
       </p>
 
       <div className="keywords-chips-list" style={{ marginTop: '0.5rem' }}>
@@ -22,7 +22,7 @@ export default function EmptyState({ query, onSelectSuggestion }) {
             className="keyword-chip"
             onClick={() => onSelectSuggestion(tag)}
           >
-            Try "{tag}"
+            {tag}
           </button>
         ))}
       </div>
