@@ -7,6 +7,7 @@ import EmptyState from './components/EmptyState';
 import ErrorState from './components/ErrorState';
 import Pagination from './components/Pagination';
 import ImageModal from './components/ImageModal';
+import { LayoutGrid, Rows, ArrowUp } from 'lucide-react';
 import { searchPhotos, getCuratedMockPhotos } from './services/unsplash';
 import './App.css';
 
@@ -20,11 +21,12 @@ export default function App() {
   const [error, setError] = useState(null);
   const [isDemoFallback, setIsDemoFallback] = useState(false);
   const [selectedPhoto, setSelectedPhoto] = useState(null);
+  const [viewMode, setViewMode] = useState('grid'); // 'grid' | 'masonry'
 
   const abortControllerRef = useRef(null);
   const resultsRef = useRef(null);
 
-  // Perform image search
+  // Execute photo search request
   const executeSearch = async (searchQuery, pageNum = 1) => {
     if (!searchQuery.trim()) {
       setPhotos([]);
@@ -33,7 +35,6 @@ export default function App() {
       return;
     }
 
-    // Abort previous in-flight request to avoid race conditions
     if (abortControllerRef.current) {
       abortControllerRef.current.abort();
     }
@@ -58,7 +59,6 @@ export default function App() {
     } catch (err) {
       if (err.name === 'AbortError') return;
 
-      // Resiliently fallback to query-matched photos
       const fallbackData = getCuratedMockPhotos(searchQuery, pageNum, 12);
       if (fallbackData.results.length > 0) {
         setPhotos(fallbackData.results);
@@ -88,7 +88,6 @@ export default function App() {
     setCurrentPage(newPage);
     executeSearch(query, newPage);
 
-    // Smooth scroll back up to the results section
     if (resultsRef.current) {
       resultsRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
@@ -101,7 +100,7 @@ export default function App() {
   };
 
   const handleLoadDemoShowcase = () => {
-    const defaultTerm = query || 'Nature';
+    const defaultTerm = query || 'Cars';
     setQuery(defaultTerm);
     const mockData = getCuratedMockPhotos(defaultTerm, 1, 12);
     setPhotos(mockData.results);
@@ -127,6 +126,10 @@ export default function App() {
     if (query) {
       executeSearch(query, currentPage);
     }
+  };
+
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   return (
@@ -181,9 +184,38 @@ export default function App() {
                       <span className="gallery-count">({totalResults.toLocaleString()} photos found)</span>
                     )}
                   </div>
+
+                  <div className="gallery-controls">
+                    <div className="view-mode-toggle" role="group" aria-label="Gallery view mode">
+                      <button
+                        type="button"
+                        className={`view-mode-btn ${viewMode === 'grid' ? 'active' : ''}`}
+                        onClick={() => setViewMode('grid')}
+                        title="Grid View"
+                        aria-pressed={viewMode === 'grid'}
+                      >
+                        <LayoutGrid size={16} />
+                        <span>Grid</span>
+                      </button>
+                      <button
+                        type="button"
+                        className={`view-mode-btn ${viewMode === 'masonry' ? 'active' : ''}`}
+                        onClick={() => setViewMode('masonry')}
+                        title="Masonry View"
+                        aria-pressed={viewMode === 'masonry'}
+                      >
+                        <Rows size={16} />
+                        <span>Masonry</span>
+                      </button>
+                    </div>
+                  </div>
                 </div>
 
-                <ImageGrid photos={photos} onSelectPhoto={(photo) => setSelectedPhoto(photo)} />
+                <ImageGrid
+                  photos={photos}
+                  onSelectPhoto={(photo) => setSelectedPhoto(photo)}
+                  viewMode={viewMode}
+                />
 
                 <Pagination
                   currentPage={currentPage}
@@ -195,6 +227,7 @@ export default function App() {
             )}
           </section>
         )}
+
         {selectedPhoto && (
           <ImageModal
             photo={selectedPhoto}
@@ -216,6 +249,16 @@ export default function App() {
               Unsplash
             </a>
           </p>
+          <button
+            type="button"
+            className="scroll-top-btn"
+            onClick={scrollToTop}
+            title="Scroll to top"
+            aria-label="Back to top"
+          >
+            <ArrowUp size={16} />
+            <span>Top</span>
+          </button>
         </div>
       </footer>
     </div>

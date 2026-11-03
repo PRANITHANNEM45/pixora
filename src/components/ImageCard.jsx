@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { Heart, User, Maximize2 } from 'lucide-react';
+import { Heart, User, Maximize2, Download } from 'lucide-react';
 
-export default function ImageCard({ photo, onSelect }) {
+export default function ImageCard({ photo, onSelect, viewMode = 'grid' }) {
   const [imageLoaded, setImageLoaded] = useState(false);
   const [imageError, setImageError] = useState(false);
   const [touchActive, setTouchActive] = useState(false);
@@ -13,8 +13,7 @@ export default function ImageCard({ photo, onSelect }) {
     }
   };
 
-  const handleTouchToggle = (e) => {
-    // On touch screens, first tap reveals the details, second tap opens full modal
+  const handleTouchToggle = () => {
     if (!touchActive) {
       setTouchActive(true);
     } else {
@@ -23,8 +22,8 @@ export default function ImageCard({ photo, onSelect }) {
   };
 
   return (
-    <div
-      className={`image-card ${touchActive ? 'touch-active' : ''}`}
+    <article
+      className={`image-card ${touchActive ? 'touch-active' : ''} ${viewMode === 'masonry' ? 'card-masonry' : 'card-grid'}`}
       tabIndex={0}
       role="button"
       aria-label={`View photo by ${photo.photographer.name}: ${photo.title}. Press Enter to preview.`}
@@ -45,7 +44,6 @@ export default function ImageCard({ photo, onSelect }) {
         />
       </div>
 
-      {/* Hover & Touch Overlay */}
       <div className="image-card-overlay">
         <div className="overlay-top">
           <span className="overlay-likes" title={`${photo.likes.toLocaleString()} likes`}>
@@ -80,6 +78,6 @@ export default function ImageCard({ photo, onSelect }) {
           </div>
         </div>
       </div>
-    </div>
+    </article>
   );
 }
