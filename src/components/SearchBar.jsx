@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Search, X, Sparkles } from 'lucide-react';
 import pixoraLogo from '../assets/pixora-logo.png';
 
@@ -20,11 +20,13 @@ const CATEGORIES = [
 ];
 
 export default function SearchBar({ currentQuery, onSearch, isLoading }) {
+  const [prevQuery, setPrevQuery] = useState(currentQuery);
   const [inputValue, setInputValue] = useState(currentQuery || '');
 
-  useEffect(() => {
+  if (currentQuery !== prevQuery) {
+    setPrevQuery(currentQuery);
     setInputValue(currentQuery || '');
-  }, [currentQuery]);
+  }
 
   const handleSubmit = (e) => {
     e.preventDefault();

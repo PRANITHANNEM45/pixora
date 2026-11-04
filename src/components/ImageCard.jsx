@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Heart, User, Maximize2, Download } from 'lucide-react';
+import { Heart, User, Maximize2 } from 'lucide-react';
 
 export default function ImageCard({ photo, onSelect, viewMode = 'grid' }) {
   const [imageLoaded, setImageLoaded] = useState(false);

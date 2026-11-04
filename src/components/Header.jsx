@@ -1,22 +1,22 @@
-import React, { useState, useEffect } from 'react';
-import { Sparkles, Key, Check, X } from 'lucide-react';
+import React, { useState } from 'react';
+import { Key, Check, X } from 'lucide-react';
 import pixoraLogo from '../assets/pixora-logo.png';
 
 export default function Header({ onReset, onApiKeyChange }) {
   const [showKeyModal, setShowKeyModal] = useState(false);
-  const [apiKeyInput, setApiKeyInput] = useState('');
-  const [savedSuccess, setSavedSuccess] = useState(false);
-  const [hasCustomKey, setHasCustomKey] = useState(false);
-
-  useEffect(() => {
+  const [apiKeyInput, setApiKeyInput] = useState(() => {
     if (typeof window !== 'undefined') {
-      const stored = window.localStorage.getItem('unsplash_access_key');
-      if (stored) {
-        setApiKeyInput(stored);
-        setHasCustomKey(true);
-      }
+      return window.localStorage.getItem('unsplash_access_key') || '';
     }
-  }, []);
+    return '';
+  });
+  const [savedSuccess, setSavedSuccess] = useState(false);
+  const [hasCustomKey, setHasCustomKey] = useState(() => {
+    if (typeof window !== 'undefined') {
+      return Boolean(window.localStorage.getItem('unsplash_access_key'));
+    }
+    return false;
+  });
 
   const handleSaveKey = (e) => {
     e.preventDefault();

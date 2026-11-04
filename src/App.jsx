@@ -11,6 +11,8 @@ import { LayoutGrid, Rows, ArrowUp } from 'lucide-react';
 import { searchPhotos, getCuratedMockPhotos } from './services/unsplash';
 import './App.css';
 
+const CURRENT_YEAR = new Date().getFullYear();
+
 export default function App() {
   const [query, setQuery] = useState('');
   const [photos, setPhotos] = useState([]);
@@ -238,7 +240,7 @@ export default function App() {
 
       <footer className="site-footer">
         <div className="footer-content">
-          <p>© {new Date().getFullYear()} Pixora. High-quality visual discovery engine.</p>
+          <p>© {CURRENT_YEAR} Pixora. High-quality visual discovery engine.</p>
           <p className="footer-attribution">
             Photos provided by{' '}
             <a

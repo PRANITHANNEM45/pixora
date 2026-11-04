@@ -147,6 +147,27 @@ npm run preview
 
 ---
 
+## ☁️ Cloud Deployment (24/7 High Availability)
+
+Pixora is configured for continuous production deployment on **Vercel's Global Edge Network** and is connected to GitHub for automatic continuous deployment (CD):
+
+* **Repository:** `https://github.com/PRANITHANNEM45/pixora.git`
+* **Vercel Configuration:** `vercel.json` with SPA routing fallbacks and asset caching headers.
+* **Continuous Integration:** Automated quality checks (linting, tests, build) run via `.github/workflows/ci.yml`.
+* **Zero Local Dependencies:** Once connected to Vercel, the application runs 24/7 on cloud hosting independent of your local machine.
+
+### Deploying to Vercel:
+1. Navigate to [vercel.com](https://vercel.com) and click **"Add New Project"**.
+2. Select and import your GitHub repository: `PRANITHANNEM45/pixora`.
+3. Vercel automatically detects **Vite** as the framework and sets:
+   - Build Command: `npm run build`
+   - Output Directory: `dist`
+4. (Optional) In **Environment Variables**, add `VITE_UNSPLASH_ACCESS_KEY` with your Unsplash API access key.
+5. Click **Deploy**. Vercel will build and assign a permanent public HTTPS URL (e.g., `https://pixora.vercel.app`).
+6. Every subsequent `git push` to `main` automatically triggers a new production deployment.
+
+---
+
 ## 📜 Git Commit Sequence
 
 In compliance with the project requirements, development was conducted and tracked across meaningful commits:
