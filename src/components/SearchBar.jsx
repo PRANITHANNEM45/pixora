@@ -6,10 +6,14 @@ const CATEGORIES = [
   { name: 'Cricket', icon: '🏏' },
   { name: 'BMW', icon: '🏎️' },
   { name: 'Cars', icon: '🚗' },
+  { name: 'Pizza', icon: '🍕' },
+  { name: 'Wildlife', icon: '🦁' },
+  { name: 'Beach', icon: '🏖️' },
   { name: 'Nature', icon: '🌿' },
-  { name: 'Dogs', icon: '🐕' },
+  { name: 'Music', icon: '🎸' },
+  { name: 'Travel', icon: '✈️' },
   { name: 'Coffee', icon: '☕' },
-  { name: 'Football', icon: '⚽' },
+  { name: 'Dogs', icon: '🐕' },
   { name: 'Technology', icon: '💻' },
   { name: 'Shoes', icon: '👟' },
   { name: 'Space', icon: '🌌' }
@@ -47,13 +51,13 @@ export default function SearchBar({ currentQuery, onSearch, isLoading }) {
         </div>
         <div className="hero-pill">
           <Sparkles size={14} className="hero-pill-icon" />
-          <span>Curated Photography Explorer</span>
+          <span>Ultra-HD Curated Photography</span>
         </div>
         <h1 id="search-heading" className="search-title">
-          Explore Stunning High-Resolution Photos
+          Explore Stunning <span className="gradient-text-vibrant">High-Resolution Photos</span>
         </h1>
         <p className="search-description">
-          Instant visual search powered by Unsplash — discover cars, cricket, nature, technology, and more.
+          Instant visual search — discover cars, food, wildlife, travel, nature, city, and any keyword in ultra-high resolution.
         </p>
       </div>
 
